@@ -1,0 +1,28 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.head{
+	height: 120px;
+	width: 100%;
+	background-color:#190202;
+}
+.head>.head_m{
+	position: relative;;
+	height:120px;
+	width:1000px;
+	margin:0 auto;	
+}
+.head_m>img{
+	float: left;
+	width: 100px;
+	height:100px;
+	margin:10px;
+}
+.head_m>h1{
+	display:inline-block; 
+	color: #14B33E;
+	line-height: 120px;
+	padding-left: 100px;
+	letter-spacing: 0.6em;
+}
