@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟手机发短信</title>
+    <style>
+    #box{ width:320px; height:400px; border:10px solid #ccc; margin:0 auto;}
+    #div1{ width:320px; height:370px; background:#fafafa; overflow:auto;}
+    img{ width:24px; height:24px;}
+
+    p{ position:relative; margin:0 0 5px 0; word-break:break-all; word-wrap:break-word; overflow:hidden;}
+    p img{ position:absolute; top:0;}
+    .left{ padding-left:30px;}
+    .right{ padding-right:30px;}
+    .left img{ left:0;}
+    .right img{ right:0;}
+    .left span{ float:left; padding:5px; background:#FFC;}
+    .right span{ float:right; padding:5px; background:#FCF;}
+    </style>
+    <script>
+        window.onload = function(){
+
+            // 获取元素
+            var oDiv = document.getElementById('div1');
+            var oImg = document.getElementById('img1');
+            var oText = document.getElementById('text1');
+            var oBtn = document.getElementById('btn1');
+            var onOff = true;
+
+            // 小头像切换
+            oImg.onclick = function(){
+                if(onOff){
+                    oImg.src = 'img/2.jpg';
+                }else{
+                    oImg.src = 'img/1.jpg';
+                }
+                onOff = !onOff;
+            };
+
+            // 发送信息
+            oBtn.onclick = function(){
+
+                var sClass = 'left';
+                if(onOff){
+                    sClass = 'left';
+                }else{
+                    sClass = 'right';
+                }
+
+                oDiv.innerHTML = '<p class=" '+sClass+' ">' +
+                                    '<img src=" '+oImg.src+' ">' +
+                                    '<span>' +oText.value+ '</span>' +
+                                '</p>' + oDiv.innerHTML;
+                oText.value = '';                
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="div1">
+            <!-- <p class="left">
+                            <img src="img/1.jpg">
+                            <span>文字1~~~</span>
+                        </p>
+                        
+            <p class="right">
+                            <img src="img/2.jpg">
+                            <span>文字2~~~</span>
+                        </p> -->
+        </div>
+        <img src="img/1.jpg" alt="" id="img1">
+        <input type="text" name="" id="text1">
+        <input type="button" value="发送" id="btn1">
+    </div>
+</body>
+</html>

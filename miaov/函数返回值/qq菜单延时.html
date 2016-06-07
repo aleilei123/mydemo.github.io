@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq菜单延时</title>
+	<style>
+      #qq{
+      	width:200px;
+      	height: 400px;
+      	background-color: #BAF6F4;   
+      	 }
+      #title{
+        width: 200px;
+        height: 120px;
+        position: absolute;
+        top:10px;
+        left: 220px;
+        background-color: #8CF3C0;
+        display: none;
+      	 }
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oqq=document.getElementById('qq');
+			var otitle=document.getElementById('title');
+			var timer=null;
+			oqq.onmouseover=show;
+			oqq.onmouseout=hide;
+            otitle.onmouseover=show;
+            otitle.onmouseout=hide;
+            
+			function show(){
+				clearTimeout(timer);
+				otitle.style.display="block";
+			}
+			function hide(){
+				clearTimeout(timer);
+				timer=setTimeout(function(){
+				otitle.style.display="none";
+			},500);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="qq"></div>
+	<div id="title"></div>
+</body>
+</html>

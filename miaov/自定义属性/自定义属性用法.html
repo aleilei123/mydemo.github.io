@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性的用法</title>
+	<style>
+	li{
+		width:113px;
+		height: 139px;
+		float: left;
+		margin: 10px;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		var ali=document.getElementsByTagName('li');
+		for(var i=0;i<ali.length;i++){
+			ali[i].onoff=true;
+			ali[i].onclick=function(){
+				if(this.onoff){
+					this.getElementsByTagName('img')[0].src="img/active.png";
+					this.onoff=false;
+				}
+				else{
+					this.getElementsByTagName('img')[0].src="img/normal.png";
+					this.onoff=true;
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<li>
+		<img src="img/normal.png">
+	</li>
+
+	<li>
+		<img src="img/normal.png">
+	</li>
+
+	<li>
+		<img src="img/normal.png">
+	</li>
+</body>
+</html>

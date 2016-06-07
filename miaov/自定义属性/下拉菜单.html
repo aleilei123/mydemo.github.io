@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	#lis{
+		width:200px;
+		/*height: auto;*/
+		border: 1px solid #170D0D;
+		margin: 20px auto;
+	}
+	#lis li{
+		list-style: none;
+	}
+	#lis h2{
+		height: 30px;
+		line-height: 30px;
+		text-indent: 12px;
+		background:url(img/ico1.gif) no-repeat 5px center ;
+		background-color: #7AEE1D;
+	}
+	#lis .active{
+		height: 30px;
+		line-height: 30px;
+		text-indent: 12px;
+		/*background:url(img/ico1.gif) no-repeat 5px center ;*/
+		background:url(img/ico2.gif) no-repeat 5px center ;
+		background-color: #EE5715;
+		
+	}
+	#lis h2:hover{
+		cursor: pointer;
+	}
+	#lis li ul{
+		display: none;
+	}
+	#lis li ul li{
+		height:20px;
+		line-height: 20px;
+		text-indent: 10px;
+	}
+	#lis li ul li:hover{
+		cursor: pointer;
+		background-color: #12F5FC;
+		height:20px;
+		line-height: 20px;
+		text-indent: 10px;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		var olis=document.getElementById("lis");
+	    var aul=olis.getElementsByTagName("ul");
+	    var ah=olis.getElementsByTagName("h2");
+        var arrli;
+        // var onoff=true;
+	    for(var i=0;i<ah.length;i++){
+          ah[i].index=i;
+          ah[i].onoff=true;
+          ah[i].onclick=function(){
+          	// var num=this.index;
+          	for(var inn=0;inn<ah.length;inn++){
+          		if(inn!=this.index){
+          			ah[inn].onoff=true;
+          		}
+          		
+          		ah[inn].className="";
+          		aul[inn].style.display="none";
+          	}
+
+          	// ah[this.index].className="active";
+          	// aul[this.index].style.display="block";
+          	if(this.onoff){
+          	ah[this.index].className="active";
+            aul[this.index].style.display="block";
+            this.onoff=false;
+           }
+           else{
+           ah[this.index].className="";
+           aul[this.index].style.display="none";
+           this.onoff=true;
+           }
+          }
+
+         
+		for(var mi=0;mi<aul.length;mi++){
+              ali=aul[mi].getElementsByTagName('li');
+           for(var j=0;j<ali.length;j++){
+           	  ali[j].onclick=function(){
+           	  	// this.className
+           	  }
+           }
+         
+		}
+
+
+
+	    }
+	}
+	   
+
+
+	</script>
+</head>
+<body>
+	<ul id="lis">
+		<li>
+			<h2>我的好友</h2>
+			<ul>
+				<li>张三</li>
+				<li>李四</li>
+				<li>王五</li>
+			</ul>
+		</li>
+		<li>
+			<h2>我的好友</h2>
+			<ul>
+				<li>张三</li>
+				<li>李四</li>
+				<li>王五</li>
+			</ul>
+		</li>
+		<li>
+			<h2>我的好友</h2>
+			<ul>
+				<li>张三</li>
+				<li>李四</li>
+				<li>王五</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

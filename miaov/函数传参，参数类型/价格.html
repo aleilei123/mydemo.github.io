@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>价格</title>
+	<script>
+	window.onload=function(){
+		var oul=document.getElementById('lis');
+		var ali=document.getElementsByTagName('li');
+
+
+		for(var i=0;i<ali.length;i++){
+		fun(ali[i]);
+		}
+		
+         var sumnum=0;
+         var sumprice=0;
+		  function fun(oli){
+
+          var ainp=oli.getElementsByTagName('input');
+          var ostrong=oli.getElementsByTagName('strong')[0];
+          var oem=oli.getElementsByTagName('em')[0];
+          var ospan=oli.getElementsByTagName('span')[0];
+          var odiv=document.getElementsByTagName('div')[0];
+          var ospan1=odiv.getElementsByTagName('span')[0];
+          var ospan2=odiv.getElementsByTagName('span')[1];
+          var ospan3=odiv.getElementsByTagName('span')[2];
+          var num=0;
+         
+          ainp[0].onclick=function(){
+          	if(num>0){
+          	sumnum--;
+            
+
+            num--;
+            oli.num=num;
+            oli.price=parseFloat(oem.innerHTML);
+            change();
+            ospan2.innerHTML=parseFloat(ospan2.innerHTML)-parseFloat(oem.innerHTML);
+            }
+            
+          }
+          ainp[1].onclick=function(){
+          	num++;
+            oli.num=num;
+            // alert(oli.num);
+            sumnum++;
+            oli.price=parseFloat(oem.innerHTML);
+            change();
+            ospan2.innerHTML=parseFloat(oem.innerHTML)+parseFloat(ospan2.innerHTML);
+          }
+          function change(){
+			ospan1.innerHTML=sumnum;
+            ostrong.innerHTML=num;
+            ospan.innerHTML='总价：'+parseFloat(oem.innerHTML)*num+'元';
+            if(num>0)
+		   {
+		   	if(parseFloat(oem.innerHTML)>parseFloat(ospan3.innerHTML)){
+		   		ospan3.innerHTML=parseFloat(oem.innerHTML);
+		   	}
+
+		   }
+
+		    if(num==0)
+		   {
+		   	// alert(111);
+		   	ospan3.innerHTML=0
+		   	for(var i=0;i<ali.length;i++){
+		   		// alert(222);
+		   		if(ali[i].num>0){
+		   			// alert(333);
+		   		if(parseFloat(ospan3.innerHTML)<ali[i].price){
+		   			// alert(ali[i].price);
+		   			ospan3.innerHTML=ali[i].price;
+		     	}
+		   		
+
+		   	  }
+		     }
+		   	}
+
+		   
+		   }
+
+          
+		}
+
+	}
+	</script>
+</head>
+<body>
+	<ul id="lis">
+		<li>
+			<input type="button" value='-'></input>
+			<strong>0</strong>
+			<input type="button" value='+'></input>
+			单价:<em>12元</em>
+			<span>总计：0元</span>
+		</li>
+
+		<li>
+			<input type="button" value='-'></input>
+			<strong>0</strong>
+			<input type="button" value='+'></input>
+			单价:<em>10元</em>
+			<span>总计：0元</span>
+		</li>
+
+		<li>
+			<input type="button" value='-'></input>
+			<strong>0</strong>
+			<input type="button" value='+'></input>
+			单价:<em>8元</em>
+			<span>总计：0元</span>
+		</li>
+
+		<li>
+			<input type="button" value='-'></input>
+			<strong>0</strong>
+			<input type="button" value='+'></input>
+			单价:<em>2元</em>
+			<span>总计：0元</span>
+		</li>
+	</ul>
+	<div>
+	商品数量合计：<span>0</span>件<br/>
+	商品价格合计：<span>0</span>元<br/>
+	其中最贵的商品单价是：<span>0</span>元
+	</div>
+</body>
+</html>

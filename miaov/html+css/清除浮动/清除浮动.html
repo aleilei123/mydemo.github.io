@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清浮动</title>
+	<style>
+	*{
+		margin: 0px;
+		padding:0px;
+	}
+	.clear{
+		margin: 0 auto;
+		width:200px;
+		border: 10px solid #000;
+	}
+	.clear div{
+		width:100px;
+		height: 100px;
+		background-color: red;
+		float: left;
+	}
+	.clear:after{
+		zoom:1;
+		content:"";
+		display: block;;
+		clear:both;
+	}
+	/* 清除浮动的常用办法 */
+	</style>
+</head>
+<body>
+	<div class="clear">
+		<div></div>
+	</div>
+</body>
+</html>

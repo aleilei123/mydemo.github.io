@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多图抖动</title>
+	<style>
+	img{
+		position: absolute;
+		top: 100px;
+		left: 20px;
+		width: 100px;
+		height: 120px;
+	}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aimg=document.getElementsByTagName('img');
+			for(var i=0;i<aimg.length;i++){
+				aimg[i].style.left=20+120*i+'px';
+				
+				aimg[i].onmouseover=function(){
+					that=this;
+					shake(that,'top');
+				}
+			}
+ 
+		}
+	</script>
+</head>
+<body>
+	<img src="img/1.jpg">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+</body>
+</html>

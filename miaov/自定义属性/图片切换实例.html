@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切图实例</title>
+	<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	body{
+		background-color: #323232;
+	}
+	.pic{
+		width:500px;
+		height: 300px;
+		margin:20px auto;
+		position: relative;
+		background:url(img/loader_ico.gif) no-repeat center;
+	}
+	img{
+		width:500px;
+		height: 300px;
+	}
+	ul{
+		width:40px;
+		position: absolute;
+		right:-50px;
+		top:-10px;
+	}
+	.pic li{
+		position: relative;
+	   list-style: none;
+	   margin: 10px 0;
+       width:40px;
+       height: 40px;
+       background-color: #B9B1B1;
+	}
+
+	.pic li img{
+		width:100px;
+		height: 100px;
+		display:none;  
+	}
+	.pic li:hover img{
+		position: absolute;
+		top:0px;
+		left:50px;
+		background-color: red;
+		display:block;  
+	}
+	.pic .active{
+		 background-color:#ECA813;
+	}
+	p{
+		width:500px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		background-color: rgba(255,255,255,0.3);
+		position: absolute;
+		bottom:0;
+	}
+	span{
+		width:500px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		background-color: rgba(255,255,255,0.3);
+		position: absolute;
+		top:0;
+	}
+
+	 .pic a{
+  	position: absolute;
+    width:40px;
+    height: 300px;
+    top:0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    line-height: 300px;
+    text-decoration: none;
+    font-size: 80px;
+  }
+   .pic a:hover{
+  	background-color: rgba(0,0,0,0.6);
+  }
+  #prev{
+    left: 0px;
+  }
+  #next{
+    right:0px;
+  }
+	</style>
+	<script>
+		window.onload=function(){
+			ontab('pic1');
+			ontab('pic2');
+			function ontab(id){
+			var picid=document.getElementById(id);
+			var oul=picid.getElementsByTagName('ul')[0];
+			var ali=oul.getElementsByTagName('li');
+			var aimg=document.getElementsByTagName('img');
+			var ap=document.getElementsByTagName('p');
+			var aspan=document.getElementsByTagName('span');
+			var oprev=document.getElementById("prev");
+	        var onext=document.getElementById("next");
+
+			var arrd=['第一张','第二张','第三张','第四张','第五张'];
+			for(var i=0;i<arrd.length;i++)
+				{
+					oul.innerHTML+='<li><img/></li>';
+				}
+				var num=0;
+				var oldlis=ali[num];
+			for(var i=0;i<arrd.length;i++){
+				 oim=ali[i].getElementsByTagName('img')[0];
+				 nn=i+1;
+                 oim.src="img/"+nn+".png";
+				 ali[i].index=i;
+			     ali[i].onclick=function(){
+         //            for(var i=0;i<arrd.length;i++){
+         //            	ali[i].className="";
+         //            }
+			     	that=this;
+			     	oldlis.className="";
+                    oldlis=this;
+                    this.className="active";
+                    ap[0].innerHTML=arrd[this.index];
+                    aspan[0].innerHTML=[this.index+1]+'/'+ali.length;
+			     	onoff(that);
+			     	num=this.index+1;
+			        aimg[0].src='img/'+num+'.png';
+					}
+					
+				}
+				function onoff(){
+					that.className="active";
+					}
+
+				onext.onclick=function(){
+				num++;
+				if(num>=ali.length){
+					num=0;
+					}
+					ali[num].className="active";
+				aimg[0].src='img/'+num+'.png';
+				ap[0].innerHTML=arrd[num-1];
+                aspan[0].innerHTML=[num]+'/'+ali.length;
+	          }	
+
+	          oprev.onclick=function(){
+				num--;
+				if(num<=0){
+					num=ali.length;
+					}
+				aimg[0].src='img/'+num+'.png';
+				ap[0].innerHTML=arrd[num-1];
+                aspan[0].innerHTML=[num]+'/'+ali.length;
+	          }	
+			
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="pic1" class="pic">
+		<img src="">
+		<a id="prev" href="javascript:;"><</a>
+	    <a id="next" href="javascript:;">></a>
+        <p>图片描述。。。</p> 
+        <span>1/4</span> 
+		<ul>
+			<!-- <li class="active"></li>
+			<li></li>
+			<li></li> -->
+			<!-- <li><img src="img/1.png"></li> -->
+		</ul>
+	</div>
+
+
+	<div id="pic2" class=pic>
+		<img src="">
+		<a id="prev" href="javascript:;"><</a>
+	    <a id="next" href="javascript:;">></a>
+        <p>图片描述。。。</p> 
+        <span>1/4</span> 
+		<ul>
+			<!-- <li class="active"></li>
+			<li></li>
+			<li></li> -->
+			<!-- <li><img src="img/1.png"></li> -->
+		</ul>
+	</div>
+</body>
+</html>

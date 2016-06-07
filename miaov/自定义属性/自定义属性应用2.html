@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<style>
+ 	input{
+ 		width:200px;
+ 		height: 200px;
+ 	  	font-size: 100px;
+ 		background-color: green;
+ 		color:#fff;
+                text-align: center;
+ 	}
+ 	</style>
+ 	<script>
+ 	window.onload=function(){
+        arr=['张三','李四','王五'];
+	var abtn=document.getElementsByTagName('input');
+        var ap=document.getElementsByTagName('p');
+        for(var i=0;i<abtn.length;i++){
+           abtn[i].index=i;
+           abtn[i].onclick=function(){
+                this.value=arr[this.index];
+                ap[this.index].innerHTML+=arr[this.index];
+           }
+        }
+ 	}
+ 	</script>
+ </head>
+ <body>
+ 	<input type="button" value="0"></input>
+ 	<input type="button" value="0"></input>
+ 	<input type="button" value="0"></input>
+
+        <p>a</p>
+        <p>b</p>
+        <p>c</p>
+ </body>
+ </html>

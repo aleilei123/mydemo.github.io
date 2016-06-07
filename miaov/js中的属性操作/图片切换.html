@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>图片切换</title>
+<style>
+  *{margin: 0;
+  padding: 0;
+  }
+  #content{
+  	width: 400px;
+  	height: 300px;
+  	position: relative;
+    margin: 40px auto 0;
+  }
+  #content a{
+  	position: absolute;
+    width:40px;
+    height: 300px;
+    top:0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    line-height: 300px;
+    text-decoration: none;
+    font-size: 80px;
+  }
+   #content a:hover{
+  	background-color: rgba(0,0,0,0.6);
+  }
+  #img1{
+  	width: 400px;
+  	height: 300px;
+    position: absolute;
+  }
+  #prev{
+    left: 0px;
+  }
+  #next{
+    right:0px;
+  }
+  p{
+   width: 400px;
+   height: 30px;
+   position: absolute;
+   bottom: 0px;
+   text-align: center;
+   background-color: rgba(0,0,0,0.6);
+   line-height: 30px;
+  }
+  span{
+   width: 400px;
+   height: 30px;
+   position: absolute;
+   top: 0px;
+   text-align: center;
+   background-color: rgba(0,0,0,0.6);
+   line-height: 30px;
+
+  }
+ 
+</style>
+<script>
+window.onload=function(){
+	var oimg=document.getElementById("img1");
+	var oprev=document.getElementById("prev");
+	var onext=document.getElementById("next");
+	var obtn1=document.getElementById("btn1");
+	var obtn2=document.getElementById("btn2");
+	var otext=document.getElementById("text");
+	var ospan=document.getElementById("span1");
+	var arrurl=['img/1.jpg','img/2.jpg','img/3.jpg'];
+	var arrtext=['小芈月刘楚恬','美味的冰激凌','古典风'];
+	var num=0;
+	ospan.innerHTML=num+1+'/'+arrtext.length;
+	otext.innerHTML=arrtext[num];
+	oimg.src=arrurl[num];
+	
+		tuoff=true;
+	
+	obtn2.onclick=function(){
+		tuoff=false;
+	}
+	
+	onext.onclick=function(){
+		num++;
+		if(num>=arrtext.length){
+			if(tuoff){
+			num=0;
+			}
+			else{
+				alert("已经是最后一张了");
+				num=arrtext.length-1;
+				
+			}
+			}
+		oimg.src=arrurl[num];
+		ospan.innerHTML=num+1+'/'+arrtext.length;
+	    otext.innerHTML=arrtext[num];
+	    
+
+	}
+
+	oprev.onclick=function(){
+		num--;
+		if(num==-1){
+		
+		if(tuoff){
+			num=arrtext.length-1;
+			}
+			else{
+				alert("已经是第一张了");
+				num=0;
+				
+			}
+			}
+		oimg.src=arrurl[num];
+		ospan.innerHTML=num+1+'/'+arrtext.length;
+	    otext.innerHTML=arrtext[num];
+	    }
+
+	
+}
+</script>
+</head>
+<body>
+     <input type="button" id="btn1" value="循环切换"></input>
+     <input type="button" id="btn2" value="顺序切换"></input>
+<div id="content">
+    
+	<img id="img1" >
+	<a id="prev" href="javascript:;"><</a>
+	<a id="next" href="javascript:;">></a>
+	<p id="text">图片文字加载中...</p>
+	<span id="span1">数量正在计算中...</span>
+</div>
+</body>
+</html>

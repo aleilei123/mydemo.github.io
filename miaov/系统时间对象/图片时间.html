@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<style>
+	body{
+		font-size: 50px;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var aimg=document.getElementsByTagName('img');
+        function gettime(){
+        var mydate=new Date();
+		
+		var ihours=mydate.getHours();
+		var imin=mydate.getMinutes();
+		var isec=mydate.getSeconds();
+		var str='';
+        
+		str= totwo(ihours)+ totwo(imin)+ totwo(isec);
+
+		return str;
+        }
+        
+        function totwo(num){
+           if(num<10){
+           	num='0'+num;
+           }else{
+           	num=''+num;
+           }
+           return num;
+        }
+        // document.body.innerHTML=gettime();
+        timer=null;
+        timer=setInterval(function(){
+        	str=gettime();
+         for(var i=0;i<str.length;i++){
+         	
+           aimg[i].src='img/'+str.charAt(i)+'.JPG';
+         }
+		
+	},1000);
+	}
+</script>
+</head>
+
+<body>
+	<div id='time'>
+		<img src="img/0.JPG" alt="">
+		<img src="img/0.JPG" alt="">
+		<img src="img/0.JPG" alt="">
+		<img src="img/0.JPG" alt="">
+		<img src="img/0.JPG" alt="">
+		<img src="img/0.JPG" alt="">
+	</div>
+</body>
+</html>

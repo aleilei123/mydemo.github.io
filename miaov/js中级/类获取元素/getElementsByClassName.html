@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+    		var oul1=document.getElementById('ul1');
+    		var ali=getElementsByClassName(oul1,'li','box');
+            for(var i=0;i<ali.length;i++){
+            	ali[i].style.background="red";
+            }
+    		function getElementsByClassName(parent,tagname,className){
+    			arr=[];
+               var aEls=parent.getElementsByTagName(tagname);
+               for(var i=0;i<aEls.length;i++){
+               	/*if(aEls[i].classe=="box"){
+                 arr.push(aEls[i]);
+               	}*/
+               	var aClassName=aEls[i].className.split(' ');
+               	for(var j=0;j<aClassName.length;j++){
+                   if(aClassName[j]==className){
+                   	arr.push(aEls[i]);
+                   	break;
+                   }
+               	}
+               	
+               }
+               return arr;
+    		}
+		};
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="box box1">111111</li>
+		<li>22222222</li>
+		<li class="box">133333331</li>
+		<li>14444441</li>
+		<p>555</p>
+	</ul>
+	<ul id="ul2">
+		<li class="box">111111</li>
+		<li>22222222</li>
+		<li class="box">133333331</li>
+		<li>14444441</li>
+	</ul>
+</body>
+</html>
