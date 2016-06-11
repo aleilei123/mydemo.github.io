@@ -1,0 +1,119 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+body{
+	background: url(../images/bg_main.jpg);
+}
+.head{
+	height: 120px;
+	background: url(../images/top.jpg) no-repeat;
+}
+#send{
+	background: url(../images/send.png) no-repeat;
+	position: absolute;
+	top:45px;
+	left: 550px;
+	width:120px;
+	height:65px;
+	cursor: pointer;
+}
+.paper{
+	width: 235px;
+	height:auto;
+	overflow: hidden;
+}
+.paper .top span{
+	display:block;
+	height:50px;
+	color: #0F0404;
+	font-size: 20px;
+	padding-left: 30px;
+	padding-top: 35px;
+}
+.paper .content span{
+	display:block;
+	height:50px;
+	color: #0F0404;
+	font-size: 20px;
+	padding-top: 10px;
+	text-align: center;
+}
+.paper .bottom span{
+	display:block;
+	height:50px;
+	color: #0F0404;
+	font-size: 15px;
+	padding-left: 30px;
+	padding-top: 30px;
+	float: left;
+}
+.paper .bottom a{
+	display:block;
+	height:50px;
+	font-size: 15px;
+	padding-left: 30px;
+	padding-top: 30px;
+	float: left;
+}
+.a1 .top{
+	background: url(../images/a1_1.gif);
+	height: 68px;
+}
+
+.a1 .content{
+	height:30px;
+	background: url(../images/a1_2.gif) repeat-y;
+}
+.a1 .bottom{
+	background: url(../images/a1_3.gif);
+	height: 72px;
+}
+/*sendform表单的样式*/
+#sendform{
+	background-color: #FFFFFF;
+	width:360px;
+	height: 420px;
+	border:1px solid #7C7777;
+}
+#sendform .head_title{
+	height:56px;
+	background: url(../images/send-title.png);
+	border-bottom: 1px solid #7C7777;
+}
+#sendform p{
+	width: 320px;
+	height:56px; 
+	float:left;
+	line-height: 56px;
+	font-size: 18px;
+	text-indent: 100px;
+}	
+#sendform .head_title #close{
+	width:30px;
+	height:56px;
+	float:right;
+	background: url(../images/close.png) no-repeat;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+#sendform label{
+	display: block;
+	font-size: 16px;
+	color: #978989;
+	margin-left: 20px;
+}
+#sendform input{
+	margin-left: 10px;
+	border-radius: 4px;
+	width: 300px;
+	height: 30px;
+}
+#sendform textarea{
+	margin-left: 10px;
+	border-radius: 4px;
+	width:300px;
+	height: 90px;
+}
