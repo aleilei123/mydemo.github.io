@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多级下拉菜单</title>
+    <style type="text/css">
+       *{margin: 0;padding: 0;font-size: 14px;font-family: "微软雅黑";list-style: none;text-decoration: none;}
+       #navmenu{width: 1000px;height: 40px;}
+       #navmenu li{border-right: 1px solid #FCF9F9;float: left;background-color: #787272}
+       #navmenu li a{color: #F7F6F6;display: block;width: 100px;text-align: center;}
+       #navmenu li a:hover{background-color: red;}
+       #navmenu li ul{display: none;}
+       #navmenu li ul li ul{display: none;}
+       #navmenu li:hover ul{width:100px;display: block;}
+       #navmenu li:hover ul li ul{display: none;}
+       #navmenu li ul li{position: relative;}
+       #navmenu li ul li:hover ul{display: block;position: absolute;top:0px;left:100px}
+    </style>
+</head>
+<body>
+    <ul id="navmenu">
+        <li><a href="#">慕课网首页</a></li>
+        <li><a href="#">课程大厅</a> </li>
+        <li><a href="#">学习中心 +</a>
+            <ul>
+                <li><a href="#">前端课程 +</a>
+                    <ul>                                     
+                        <li><a href="#">javascript</a></li>
+                        <li><a href="#">css</a></li>
+                        <li><a href="#">jquery</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">手机开发</a></li>
+                <li><a href="#">后台编程</a></li>
+            </ul>
+        </li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</body>
+</html>

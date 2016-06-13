@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<style>
+ 	input{
+ 		width:200px;
+ 		height: 200px;
+ 		font-size: 100px;
+ 		background-color: green;
+ 		color:#fff;
+ 	}
+ 	</style>
+ 	<script>
+ 	window.onload=function(){
+ 		arr=['A','B','C','D']
+ 		var abtn=document.getElementsByTagName('input');
+        for(var i=0;i<abtn.length;i++){
+        	abtn[i].num=0;
+        	abtn[i].onclick=function(){
+        		if(this.num===arr.length){
+        			this.num=0;
+        		}
+        		this.value=arr[this.num];
+        		this.num++;
+        	}
+        }
+ 	}
+ 	
+ 	</script>
+ </head>
+ <body>
+ 	<input type="button" value="0"></input>
+ 	<input type="button" value="0"></input>
+ 	<input type="button" value="0"></input>
+ </body>
+ </html>

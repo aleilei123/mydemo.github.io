@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽改变层大小</title>
+	<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+		top:200px;
+		left: 300px;
+	}
+	</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var odiv=document.getElementsByTagName('div')[0];
+			
+		odiv.onmousedown=function(ev){
+			ev=ev||event;
+			X=ev.clientX;
+			Y=ev.clientY;
+			L=odiv.offsetLeft+10;
+			R=odiv.offsetLeft+odiv.offsetWidth-10;
+			T=odiv.offsetTop+10;
+			R=odiv.offsetTop+odiv.offsetHeight-10;
+			disW=odiv.offsetWidth;
+			str='';
+			if(X>R){str='right';}
+			if(X<L){str='left';}
+			/*if(X>R){str='right';}
+			if(X>R){str='right';}*/
+		document.onmousemove=function(ev){
+			switch(str){
+				case 'right':
+				odiv.style.width=disW+(ev.clientX-X)+'px';
+				break;
+				case 'left':
+				odiv.style.left=L-(X-ev.clientX)+'px';
+				odiv.style.width=disW+(X-ev.clientX)+'px';
+				break;
+
+
+			}
+			};
+			document.onmouseup=function(ev){
+				document.onmousemove=null;
+			};
+		};
+		
+		
+	};
+</script>
+</head>
+<body>
+	<div>
+	</div>
+</body>
+</html>

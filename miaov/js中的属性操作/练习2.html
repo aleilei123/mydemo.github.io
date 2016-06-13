@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大缩小字体</title>
+	<script>
+		window.onload=function(){
+			var obtn1=document.getElementById("btn1");
+			var obtn2=document.getElementById("btn2");
+			var obtn3=document.getElementById("btn3");
+			var obtn4=document.getElementById("btn4");
+			var op=document.getElementById("p");
+
+			 var num=15;
+			obtn2.onclick=function(){
+			if(num<18){
+			 num++;
+			op.style.fontSize=num+'px';
+			}
+			//js中不允许出现"-"，变成"fontSize"
+		    }
+
+		    obtn1.onclick=function(){
+		    if(num>12){
+			 num--;
+			op.style.fontSize=num+'px';}
+
+			//js中不允许出现"-"，变成"fontSize"
+		    }
+		     obtn3.onclick=function(){
+			
+			 op.className="red";
+			//class是保留字，要改变用className
+		    }
+		}
+	</script>
+	<style>
+      .red{
+      	width:400px;
+      	background-color: red;
+        color: yellow;
+        border: 10px solid green;
+      	}
+	</style>
+</head>
+<body>
+	<input id="btn1" type="button" value="-"></input>
+	<input id="btn2" type="button" value="+"></input>
+	<input id="btn3" type="button" value="红"></input>
+	<input id="btn4" type="button" value="黄"></input>
+	<p id="p">  北京量子恒源信息技术有限公司负责人、计算机学院计算机科学与技术专业97级-1班吴爱华校友出资在学院设立“量子复兴”专项奖学金，本次专项奖金学包含英才奖（2000元/人）和励志奖（1000元/人）主要是奖励在校期间在专业学习、实践、创新领域有一定专长和培养潜质的学生，请学院学生学科性社团指导老师和项目（团队）指导老师积极推荐符合条件的学生参评，切实鼓励和支持学生的专业能力提升与发展。
+</p>
+</body>
+</html>

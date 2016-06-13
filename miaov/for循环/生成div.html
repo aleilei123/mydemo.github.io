@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生成div</title>
+	<style>
+	div{
+		width:50px;
+		height:50px;
+		background-color: orange;
+		position: absolute;
+		text-align: center;
+		font-size: 40px;
+		color: #fff;
+		line-height: 50px;
+		font-weight: bold;
+		top:0;
+		left: 0;
+	}
+	</style>
+	<script>
+	// 方法一：
+	// window.onload=function(){
+	//    adiv=document.getElementsByTagName('div');
+	//     for(var i=0;i<100;i++){
+	// 	 document.body.innerHTML+='<div>'+i+'</div>';
+	//    }	
+	  
+	//     for(var i=0;i<adiv.length;i++){ 	
+	// 	adiv[i].style.left=(i%10)*60+'px';
+	// 	adiv[i].style.top=parseInt(i/10)*60+'px';
+	//    }
+	// }
+
+
+    // 方法二：
+	window.onload=function(){
+	   adiv=document.getElementsByTagName('div');
+	    for(var i=0;i<11;i++){
+		 document.body.innerHTML+='<div>'+i+'</div>';
+	   }	
+	  
+	    for(var i=0;i<adiv.length;i++){ 	
+		adiv[i].style.left=i*50+'px'; 
+		adiv[i].style.top=i*50-parseInt(i/6)*(i-5)*100+'px';
+	   }
+	}
+	
+	</script>
+</head>
+<body>
+	<!-- <div>1</div> -->
+</body>
+</html>

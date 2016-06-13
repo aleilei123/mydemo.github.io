@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右键下拉菜单</title>
+	<style type="text/css">
+	div{
+		width: 100px;
+		height: 200px;
+		background-color: red;
+		display: none;
+		position: absolute;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var odiv=document.getElementsByTagName('div')[0];
+			document.oncontextmenu=function(ev){
+				ev=ev||event;
+				odiv.style.display="block";
+				odiv.style.left=ev.clientX+'px';
+				odiv.style.top=ev.clientY+'px';
+				return false;
+
+			};
+		};
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡机制</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var odiv=document.getElementsByTagName('div')[0];
+		function fn(){
+			odiv.style.backgroundColor="yellow";
+		}
+	
+		bind(odiv,'click',fn);
+		function bind(obj,evename,fn){
+ 			if(obj.addEventListener){
+ 				obj.addEventListener(evename,fn,false);
+ 			}else{
+ 				
+ 				obj.attachEvent('on'+evename,function(){
+ 					fn.call(obj);
+ 				});
+ 			}
+		}
+	};
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

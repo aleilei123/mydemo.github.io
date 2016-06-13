@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多图滑动</title>
+	<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+	div{
+		position: relative;
+		margin: 20px auto;
+		width: 370px;
+		height: 120px;
+		border: 1px solid #C0B5B5;
+		overflow: hidden;
+	}
+	ul{
+		position: absolute;
+		left: 10px;
+	}
+	li{
+		float: left;
+	}
+	img{
+		margin: 10px;
+		width: 100px;
+		height: 100px;
+	}
+	a{
+		z-index: 5;
+		position: absolute;
+		width: 50px;
+		height: 120px;
+		text-decoration: none;
+		font-size: 80px;
+		opacity: 0.3;
+		line-height: 120px;
+	}
+	#prev{
+
+	    left: 7px;
+	  }
+	#next{
+	    right:0px;
+	  }
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aul=document.getElementsByTagName('ul');
+			var oprev=document.getElementById('prev');
+			var onext=document.getElementById('next');
+			for(var i=0;i<aul.length;i++){
+			  aul[i].index=i;
+              aul[i].style.left=370*i+'px';
+			}
+			// alert(aul[1].style.left);
+			timer=null;
+			var num=0;
+			onext.onclick=function(){
+				
+				clearInterval(timer);
+                timer=setInterval(function(){
+				aul[num].style.left=parseInt(getStyle(aul[num],'left'))-10+'px';
+				aul[num+1].style.left=parseInt(getStyle(aul[num+1],'left'))-10+'px';
+			    if(parseInt(aul[num+1].style.left)<10){
+                  clearInterval(timer);
+                  aul[num+2].style.left=parseInt(getStyle(aul[num+2],'left'))-370+'px';
+                  aul[num].style.left=parseInt(getStyle(aul[num+2],'left'))+370+'px';
+                  num++;
+
+			    }
+				},50);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+	<a id="prev" href="javascript:;"><</a>
+	<a id="next" href="javascript:;">></a>
+		<ul>
+			<li><img src="img/1.jpg"></li>
+			<li><img src="img/2.jpg"></li>
+			<li><img src="img/3.jpg"></li>
+		</ul>
+		<ul>
+			<li><img src="img/1.png"></li>
+			<li><img src="img/2.png"></li>
+			<li><img src="img/3.png"></li>
+		</ul>
+		<ul>
+			<li><img src="img/5.jpg"></li>
+			<li><img src="img/6.jpg"></li>
+			<li><img src="img/7.jpg"></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq号码验证</title>
+    <script>
+    	window.onload=function(){
+    		var ainp=document.getElementsByTagName('input');
+    		var str='';
+    		ainp[1].onclick=function(){
+            str=ainp[0].value;
+            if(str.length==0){
+            	alert("qq号不能为空！");
+            }else{
+            	if(isNaN(str)){
+            		alert("qq号码必须是数字！");
+            	}
+            	else{
+            		if(str[0]==0){
+            			alert("开头不能为0");
+            		}else{
+            			if(parseInt(str)!=parseFloat(str)){
+            				alert("不能如果输入小数");
+            			}
+            			else{
+            				if(str.length<5||str.length>10){
+            					alert("长度必须在5-10位");
+            				}
+            				else{alert("成功")};
+            			}
+            		}
+            	}
+            }
+
+    		}
+    	}
+    </script>
+</head>
+<body>
+	<label>请输入qq号码:</label>
+	<input type="text"></input>
+	<input type="button" value="验证"></input>
+</body>
+</html>

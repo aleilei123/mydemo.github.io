@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素节点</title>
+	<script>
+	window.onload=function(){
+      var oul=document.getElementsByTagName('ul')[0];
+      var aA=document.getElementsByTagName('a');
+
+      for(var i=0;i<aA.length;i++){
+      	aA[i].onclick = function(){
+           this.parentNode.style.display="none" ;   
+           };
+      }
+	};
+	</script>
+</head>
+<body>
+	<ul>
+		<li>11111111 <a href="">隐藏</a></li>
+		<li>22222222 <a href="javascript:;">隐藏</a></li>
+		<li>33333333 <a href="javascript:;">隐藏</a></li>
+		<li>44444444 <a href="javascript:;">隐藏</a></li>
+	</ul>
+</body>
+</html>

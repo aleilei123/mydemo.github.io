@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>碰撞检测</title>
+	<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+		top:20px;
+		left: 0px;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var odiv=document.getElementsByTagName('div')[0];
+			var oimg=document.getElementsByTagName('img')[0];
+			drag(odiv);
+			function drag(obj){
+			obj.onmousedown=function(ev){
+				ev=ev||event;
+				var disX=ev.clientX-this.offsetLeft;
+				var disY=ev.clientY-this.offsetTop;
+				if(obj.setCapture){
+					obj.setCapture();
+				}
+				document.onmousemove=function(ev){
+					var L=ev.clientX-disX;
+					var T=ev.clientY-disY;
+					if(L<100){
+						L=0;
+					}else if(L>document.documentElement.clientWidth-obj.offsetWidth){
+						L=document.documentElement.clientWidth-obj.offsetWidth;
+					}
+					if(T<0){
+						T=0;
+					}else if(T>document.documentElement.clientHeight-obj.offsetHeight){
+						T=document.documentElement.clientHeight-obj.offsetHeight;
+					}
+					obj.style.left=L+'px';
+					obj.style.top=T+'px';
+
+					l1=obj.offsetLeft;
+					r1=l1+obj.clientWidth;
+					t1=obj.offsetTop;
+					b1=t1+obj.clientHeight;
+
+					l2=oimg.offsetLeft;
+					r2=l2+oimg.clientWidth;
+					t2=oimg.offsetTop;
+					b2=t2+oimg.clientHeight;
+
+					if(r1<l2||l1>r2||b1<t2||t1>b2){
+						oimg.src="img/3.jpg";
+					}else{
+						oimg.src="img/2.jpg";
+					}
+
+
+				};
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					if(obj.releaseCapture){
+						obj.releaseCapture();
+					}
+				};
+				return false;
+			};
+			}
+		};
+	</script>
+</head>
+<body>
+
+	<div></div>
+	<img src="img/3.jpg" style="position: absolute;left: 500px;top:200px;"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单的操作</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oform=document.getElementById('form1');
+			oform.onsubmit=function(){
+			// 阻止表单提交用return false(必须是false，0都不可以)
+				if(this.text1.value==''){
+					alert('内容不能为空');
+					return false;
+				}
+			};
+		/*	setTimeout(function(){
+				oform.submit();
+			},2000);*/
+			oform.onreset=function(){
+				return confirm('确定要重置吗？');
+			};
+		};
+	</script>
+</head>
+<body>
+	<form id="form1" action="表单的操作.html">
+		<input type="text" name="text1"></input>
+		<input type="text" name="text1"></input>
+		<input type="submit" name="dosubmit" value="提交"></input>
+		<input type="reset" name="reset" value="重置"></input>
+
+	</form>
+</body>
+</html>

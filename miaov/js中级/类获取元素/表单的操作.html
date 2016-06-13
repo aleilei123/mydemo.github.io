@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单的操作</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oform=document.getElementById('form1');
+			// alert(oform.text1.value);
+			// 获取表单名称（直接根据name）
+			oform.text1.onchange=function(){
+				alert(this.value);
+			};
+			oform.sex[0].onchange=function(){
+				alert(this.value);
+			};
+			oform.web[0].onchange=function(){
+				alert(this.value);
+			};
+			oform.city.onchange=function(){
+				alert(this.value);
+			};
+			// alert(oform.city.value);
+			oform.btn.onclick=function(){
+				for(var i=0;i<oform.sex.length;i++){
+					if(oform.sex[i].checked){
+						alert(oform.sex[i].value);
+					}
+				}
+
+				for(var i=0;i<oform.web.length;i++){
+					if(oform.web[i].checked){
+						alert(oform.web[i].value);
+					}
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<form id="form1">
+		<input type="text" id="text1" name="text1" value="内容"></input>
+		<!-- 提交表单主要靠name -->
+		<input type="radio" value="男" name="sex" checked>男</input>
+		<input type="radio" value="女" name="sex">女</input>
+		<!-- 设置radio在一组，name值必须一样 -->
+		<input type="checkbox" name="web" value="html">html</input>
+		<input type="checkbox" name="web" value="css">css</input>
+		<input type="checkbox" name="web" value="js">js</input>
+
+		<select name="city">
+			<option value="">请选择城市</option>
+			<option value="北京" selected>北京</option>
+			<option value="上海">上海</option>
+			<option value="深圳">深圳</option>
+		</select>
+
+		<input type="button" name="btn" value="提交"></input>
+		<input type="reset" name="reset" value="重置"></input>
+	</form>
+</body>
+</html>

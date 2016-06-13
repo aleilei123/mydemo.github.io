@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	window.onload=function(){
+		var oul=document.getElementById("lis");
+		var aul=oul.getElementsByTagName('ul');
+		for(var i=0;i<aul.length;i++){
+			var ali=aul[i].getElementsByTagName('li');
+			for (var j=0;j<ali.length;j++){
+				ali[j].style.color="yellow";
+		     }
+	    }
+	}
+	
+	</script>
+</head>
+<body>
+	<ul id="lis">
+		<li>
+			<h2>我的好友</h2>
+			<ul>
+				<li>小猪</li>
+				<li>小范</li>
+				<li>笑笑</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>我的坏友</h2>
+			<ul>
+				<li>小花</li>
+				<li>小红</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>大学同学</h2>
+			<ul>
+				<li>晓瑜</li>
+				<li>小杜</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>					

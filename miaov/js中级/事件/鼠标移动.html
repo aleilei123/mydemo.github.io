@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+	<style type="text/css">
+	#div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+	}
+	</style>
+</head>
+<script type="text/javascript">
+
+window.onload=function(){
+	var odiv=document.getElementById('div');
+	document.onmousemove=function(){
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		console.log(scrollTop);
+		console.log(scrollY);
+		arr=fn1();
+		odiv.style.left=arr[0]+scrollX+'px';
+		odiv.style.top=arr[1]+scrollY+'px';
+}
+function fn1(ev){
+	var arr=[];
+	ev=ev||event;
+	arr.push(ev.clientX);
+	arr.push(ev.clientY);
+	return arr;
+}
+};
+</script>
+<body style="height:2000px;width: 3000px">
+	<div id="div"></div>
+</body>
+</html>

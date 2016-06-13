@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this的用法</title>
+	<style>
+	li{
+		width:200px;
+		height: 150px;
+		float:left;
+		background-color: #CAC7C7;
+		position: relative;
+		margin: 10px;
+	}
+	div{
+		width:150px;
+		height: 100px;
+		position: absolute;
+		top:75px;
+		left:25px;
+		background-color: green;
+		display: none;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+         var ali=document.getElementsByTagName('li');
+         for(var i=0;i<ali.length;i++){
+         	ali[i].onmouseover=function(){
+         		this.getElementsByTagName('div')[0].style.display="block";
+         	}
+
+         	ali[i].onmouseout=function(){
+         		this.getElementsByTagName('div')[0].style.display="none";
+         	}
+         }
+	}
+	</script>
+</head>
+<body>
+	<li>
+		<div></div>
+	</li>
+
+	<li>
+		<div></div>
+	</li>
+
+	<li>
+		<div></div>
+	</li>
+</body>
+</html>

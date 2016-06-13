@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>removeClass</title>
+	<script type="text/javascript">
+		window.onload=function(){
+ 			var odiv=document.getElementsByTagName('div')[0];
+ 			removeClass(odiv,'box2');
+ 			function removeClass(obj,className){
+ 				
+ 					var objclassName=obj.className.split(' ');
+ 					var _index=arrIndexOf(objclassName,className);
+ 					obj.className='';
+ 					for(var i=0;i<_index.length;i++){
+ 					obj.className+=' '+_index[i];
+ 					}
+ 				}
+ 		
+ 			function arrIndexOf(objclassName,className){
+ 				var arr=[];
+ 				for(var i=0;i<objclassName.length;i++){
+
+ 					if(objclassName[i]!=className){
+
+ 						arr.push(objclassName[i]);
+ 					}
+ 				}
+
+ 				return arr;
+ 			}
+		};
+	</script>
+</head>
+<body>
+	<div class="box box1 box2">div</div>
+</body>
+</html>

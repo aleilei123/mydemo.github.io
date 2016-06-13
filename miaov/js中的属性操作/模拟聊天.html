@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟聊天</title>
+	<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	#div1{
+		position: relative;
+		width: 176px;
+		height: 348px;
+		border: 1px solid #000;
+		background: url(img/iphone.png);
+	}
+    #content{
+    	
+    	position: absolute;
+    	width:145px;
+    	height: 230px;
+    	border-top: 2px solid #000;
+    	border-left: 2px solid #000;
+    	border-right: 2px solid #000;
+    	top:43px;
+    	left:14px;
+    	background-color: #fff;
+    	overflow: scroll;
+    	/*超出的部分滚动条显示*/
+    }
+    #group{
+    	position: absolute;
+    	width:145px;
+    	height: 30px;
+    	border-top: 1px solid #E4DFDF;
+    	border-left: 2px solid #000;
+    	border-right: 2px solid #000;
+    	border-bottom: 2px solid #000;
+    	top:273px;
+    	left:14px;
+    	background-color: #FBF2F2;
+    }
+    #img1{
+    	margin:2px;
+    	float: left;
+    }
+
+	#text1{
+		float: left;
+		width:70px;
+		margin-top:5px;
+		
+	}
+	#button1{
+		float: left;
+		margin-top:5px;
+		margin-left:2px;
+	}
+	
+	.right{
+		text-align:right;
+		padding-right: 27px;
+	}
+	.right_img{
+		position: absolute;
+		right: 0px;}
+	.left{text-align:left;}
+	.right span{background:#21c618; color:#FFF;}
+	.left span{background:#ded6e7; color:#000;}
+	</style>
+	<script>
+	window.onload=function(){
+	var ocontent=document.getElementById('content');
+	var oimg=document.getElementById('img1');
+	var otext=document.getElementById('text1');
+	var obutton=document.getElementById('button1');
+	var toff=true;
+	oimg.onclick=function(){
+		if(toff){
+          oimg.src="img/face2.png";
+          toff=false;
+        }
+        else{
+          oimg.src="img/face1.png";
+          toff=true;
+        }
+	}
+	obutton.onclick=function(){
+		if(otext.value==""){
+			alert("亲，写点东西吧~~~");
+		}
+		else{
+			if(toff){
+				ocontent.innerHTML='<p class="right"/>'+'<img class="right_img" src="img/face1.png">'+'<span>'+otext.value+'</span>'+'</p>'+ocontent.innerHTML;
+				otext.value="";
+				// alert(ocontent.innerHTML);
+			}
+			else{
+				ocontent.innerHTML='<p class="left"/>'+'<img src="img/face2.png">'+'<span>'+otext.value+'</span>'+'</p>'+ocontent.innerHTML;
+				otext.value="";
+
+			}
+		}
+	}
+	
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">
+	<div id="content"></div>
+	<div id="group">
+		<img id="img1" src="img/face1.png">
+		<input id="text1" type="textarea"></input>
+		<input id="button1" type="button" value="发送"></input>
+		<!-- <p><img src=""></p> -->
+	</div>
+</div>
+</body>
+</html>
