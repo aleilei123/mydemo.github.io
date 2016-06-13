@@ -9,12 +9,12 @@ ul {
 	list-style: none;
 }
 body{
-	background: url(../Images/bg_main.jpg);
+	background: url(Images/bg_main.jpg);
 }
 #top {
 	width: 450px;
 	height: 81px;
-	background: url(../Images/top.jpg) no-repeat;
+	background: url(Images/top.jpg) no-repeat;
 	padding-top: 45px;
 	padding-left: 550px;
 }
@@ -23,7 +23,7 @@ body{
 	width: 200px;
 	height: 200px;
 	cursor: pointer;
-	background: url(../Images/send.png) no-repeat;
+	background: url(Images/send.png) no-repeat;
 }
 #head_icon img {
 	
@@ -99,7 +99,7 @@ input[type="text"]:focus{
 #send-form .ftitle {
 	width: 360px;
 	height: 56px;
-	background: url(../Images/send-title.png) repeat-x;
+	background: url(Images/send-title.png) repeat-x;
 }
 #send-form .ftitle span {
 	display: block;
@@ -116,7 +116,7 @@ input[type="text"]:focus{
 	display: block;
 	width: 29px;
 	height: 24px;
-	background: url(../Images/close.png) no-repeat;
+	background: url(Images/close.png) no-repeat;
 	float: right;
 	margin-top: 16px;
 	margin-right: 10px;
@@ -128,7 +128,7 @@ input[type="text"]:focus{
 	display: block;
 	width: 120px;
 	height: 50px;
-	background: url(../Images/send-btn.png) no-repeat;
+	background: url(Images/send-btn.png) no-repeat;
 	cursor: pointer;
 	float: right;
 	margin: 10px;
@@ -188,47 +188,47 @@ input[type="text"]:focus{
 	background-position: -43px 0;
 }
 .a1 dt {
-	background: url(../Images/a1_1.gif);
+	background: url(Images/a1_1.gif);
 }
 .a1 .content {
-	background : url(../Images/a1_2.gif) repeat-y -2px;
+	background : url(Images/a1_2.gif) repeat-y -2px;
 }
 .a1 .bottom{
-	background: url(../Images/a1_3.gif) no-repeat;
+	background: url(Images/a1_3.gif) no-repeat;
 }
 .a2 dt {
-	background: url(../Images/a2_1.gif);
+	background: url(Images/a2_1.gif);
 }
 .a2 .content {
-	background : url(../Images/a2_2.gif) repeat-y -2px;
+	background : url(Images/a2_2.gif) repeat-y -2px;
 }
 .a2 .bottom{
-	background: url(../Images/a2_3.gif) no-repeat;
+	background: url(Images/a2_3.gif) no-repeat;
 }
 .a3 dt {
-	background: url(../Images/a3_1.gif);
+	background: url(Images/a3_1.gif);
 }
 .a3 .content {
-	background : url(../Images/a3_2.gif) repeat-y -2px;
+	background : url(Images/a3_2.gif) repeat-y -2px;
 }
 .a3 .bottom{
-	background: url(../Images/a3_3.gif) no-repeat;
+	background: url(Images/a3_3.gif) no-repeat;
 }
 .a4 dt {
-	background: url(../Images/a4_1.gif);
+	background: url(Images/a4_1.gif);
 }
 .a4 .content {
-	background : url(../Images/a4_2.gif) repeat-y -2px;
+	background : url(Images/a4_2.gif) repeat-y -2px;
 }
 .a4 .bottom{
-	background: url(../Images/a4_3.gif) no-repeat;
+	background: url(Images/a4_3.gif) no-repeat;
 }
 .a5 dt {
-	background: url(../Images/a5_1.gif);
+	background: url(Images/a5_1.gif);
 }
 .a5 .content {
-	background : url(../Images/a5_2.gif) repeat-y -2px;
+	background : url(Images/a5_2.gif) repeat-y -2px;
 }
 .a5 .bottom{
-	background: url(../Images/a5_3.gif) no-repeat;
+	background: url(Images/a5_3.gif) no-repeat;
 }
