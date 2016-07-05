@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间扩展版</title>
+	<style type="text/css">
+	body{
+		padding: 80px;
+	}
+	div{
+		width:1200px;
+		height: 170px;
+		/*background-color: yellow;*/
+		position: relative;
+		overflow: hidden;
+	}
+	img{
+		position: absolute;
+		top:0px;
+	}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		var aimg=document.getElementsByTagName('img');
+		for(var i=0;i<aimg.length;i++){
+			if(i<8){
+			aimg[i].style.top='0px';
+			aimg[i].style.left=i*150+'px';
+			}
+			else{
+			aimg[i].style.top='170px';
+			aimg[i].style.left=(i-8)*150+'px';
+			}
+		}
+		function totwo(a){
+			a<10? a='0'+a:a=''+a;
+			return a;
+		}
+		var arr=['../img/0.JPG','../img/1.JPG','../img/2.JPG','../img/3.JPG','../img/4.JPG','../img/5.JPG','../img/6.JPG','../img/7.JPG','../img/8.JPG','../img/9.JPG'];
+		    var mydate=new Date();
+			var myhour=mydate.getHours();
+			var mymin=mydate.getMinutes();
+			var mysec=mydate.getSeconds();
+			var str=totwo(myhour)+'' + totwo(mymin) + totwo(mysec);
+			aimg[0].src=arr[str.split('')[0]];
+			aimg[1].src=arr[str.split('')[1]];
+			aimg[3].src=arr[str.split('')[2]];
+			aimg[4].src=arr[str.split('')[3]];
+			aimg[6].src=arr[str.split('')[4]];
+			aimg[7].src=arr[str.split('')[5]];
+
+			var mydate1=new Date();
+			console.log(mydate1);
+			var myhour1=mydate1.getHours();
+			var mymin1=mydate1.getMinutes();
+			var mysec1=mydate1.getSeconds()+1;
+			var str1=totwo(myhour1)+'' + totwo(mymin1) + totwo(mysec1);
+			console.log(str);
+			console.log(str1);
+			aimg[8].src=arr[str1.split('')[0]];
+			aimg[9].src=arr[str1.split('')[1]];
+			aimg[11].src=arr[str1.split('')[2]];
+			aimg[12].src=arr[str1.split('')[3]];
+			aimg[14].src=arr[str1.split('')[4]];
+			aimg[15].src=arr[str1.split('')[5]];
+ 		arr1=[0,1,3,4,6,7];
+        arr2=[8,9,11,12,14,15];
+        var timer=setInterval(function(){
+        	var mydate=new Date();
+			var myhour=mydate.getHours();
+			var mymin=mydate.getMinutes();
+			var mysec=mydate.getSeconds();
+			var str=totwo(myhour)+'' + totwo(mymin) + totwo(mysec);
+			aimg[0].src=arr[str.split('')[0]];
+			aimg[1].src=arr[str.split('')[1]];
+			aimg[3].src=arr[str.split('')[2]];
+			aimg[4].src=arr[str.split('')[3]];
+			aimg[6].src=arr[str.split('')[4]];
+			aimg[7].src=arr[str.split('')[5]];
+
+			var mydate1=new Date();
+			var myhour1=mydate1.getHours();
+			var mymin1=mydate1.getMinutes();
+			var mysec1=mydate1.getSeconds()+1;
+			var str1=totwo(myhour1)+'' + totwo(mymin1) + totwo(mysec1);
+			console.log(str);
+			console.log(str1);
+			aimg[8].src=arr[str1.split('')[0]];
+			aimg[9].src=arr[str1.split('')[1]];
+			aimg[11].src=arr[str1.split('')[2]];
+			aimg[12].src=arr[str1.split('')[3]];
+			aimg[14].src=arr[str1.split('')[4]];
+			aimg[15].src=arr[str1.split('')[5]];
+            
+           
+            console.log(arr1);
+             console.log(arr2);
+	            if(str.split('')[0]!=str1.split('')[0]){
+	            	aimg[arr1[0]].src=arr[str.split('')[0]];
+					aimg[arr2[0]].src=arr[str1.split('')[0]];
+		            doMove(aimg[arr1[0]],'top','10','-170',function(){
+	            	aimg[arr1[0]].style.top="170px";
+	            	});
+		            doMove(aimg[arr2[0]],'top','10','0',function(){
+		            	setTimeout(function(){
+		            		num=arr1[0];
+		            arr1[0]=arr2[0];
+		            arr2[0]=num;
+		            	},1);
+		            });
+		            
+		            }
+
+	            if(str.split('')[1]!=str1.split('')[1]){
+            	aimg[arr1[1]].src=arr[str.split('')[1]];
+				aimg[arr2[1]].src=arr[str1.split('')[1]];
+	            doMove(aimg[arr1[1]],'top','10','-170',function(){
+            	aimg[arr1[1]].style.top="170px";
+            	});
+	            doMove(aimg[arr2[1]],'top','10','0',function(){
+	            	setTimeout(function(){
+	            		num=arr1[1];
+		            arr1[1]=arr2[1];
+		            arr2[1]=num;
+	            	},1);
+	            });
+	               
+	            }
+
+	             if(str.split('')[2]!=str1.split('')[2]){
+            	aimg[arr1[2]].src=arr[str.split('')[2]];
+				aimg[arr2[2]].src=arr[str1.split('')[2]];
+	            doMove(aimg[arr1[2]],'top','10','-170',function(){
+            	aimg[arr1[2]].style.top="170px";
+            	});
+	            doMove(aimg[arr2[2]],'top','10','0',function(){
+	            	setTimeout(function(){
+	            		num=arr1[2];
+		            arr1[2]=arr2[2];
+		            arr2[2]=num;
+	            	},1);
+	            });
+	            
+	            }
+
+	            if(str.split('')[3]!=str1.split('')[3]){
+            	aimg[arr1[3]].src=arr[str.split('')[3]];
+				aimg[arr2[3]].src=arr[str1.split('')[3]];
+	            doMove(aimg[arr1[3]],'top','10','-170',function(){
+            	aimg[arr1[3]].style.top="170px";
+            	});
+	            doMove(aimg[arr2[3]],'top','10','0',function(){
+	            	setTimeout(function(){
+	            		num=arr1[3];
+		            arr1[3]=arr2[3];
+		            arr2[3]=num;
+	            	},1);
+	            });
+	            
+	            }
+
+	            if(str.split('')[4]!=str1.split('')[4]){
+            	aimg[arr1[4]].src=arr[str.split('')[4]];
+				aimg[arr2[4]].src=arr[str1.split('')[4]];
+	            doMove(aimg[arr1[4]],'top','10','-170',function(){
+            	aimg[arr1[4]].style.top="170px";
+            	});
+	            doMove(aimg[arr2[4]],'top','10','0',function(){
+	            	setTimeout(function(){
+	            		 num=arr1[4];
+		            arr1[4]=arr2[4];
+		            arr2[4]=num;
+	            	},1);
+	            });
+	           
+	            }
+
+	            if(str.split('')[5]!=str1.split('')[5]){
+            	aimg[arr1[5]].src=arr[str.split('')[5]];
+				aimg[arr2[5]].src=arr[str1.split('')[5]];
+	            doMove(aimg[arr1[5]],'top','10','-170',function(){
+            	aimg[arr1[5]].style.top="170px";
+            	});
+	            doMove(aimg[arr2[5]],'top','10','0',function(){
+	            	setTimeout(function(){
+	            		num=arr1[5];
+			            arr1[5]=arr2[5];
+			            arr2[5]=num;
+	            	},1);
+	            });
+	            
+	            }
+            
+           
+
+        },1000);
+
+
+
+		};
+	</script>
+</head>
+<body>
+	<div>
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+		<img src="../img/colon.JPG">
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+		<img src="../img/colon.JPG">
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+        
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+		<img src="../img/colon.JPG">
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+		<img src="../img/colon.JPG">
+		<img src="../img/0.JPG">
+		<img src="../img/1.JPG">
+	</div>
+</body>
+</html>

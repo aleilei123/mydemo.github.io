@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D幻灯片</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#wrap{
+			width: 800px;
+			height: 360px;
+			margin: 100px auto;
+			position: relative;
+		}
+		#piclist{
+			
+			width: 800px;
+			height: 360px;
+			-webkit-perspective: 10000px;	
+		}
+		#piclist li {
+			width: 25px;
+			height: 360px;
+			position: relative;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transform-origin: right center -180px;
+			float: left;
+			/*-webkit-transform: rotateX(-90deg);*/
+		}
+		#piclist li a{
+			position: absolute;
+		}
+		#piclist li,#piclist li a{
+			
+			width: 25px;
+			height: 360px;
+		}
+	
+		#piclist li a:nth-of-type(1){
+			top: 0;
+			left: 0;
+			background: url() ;
+		}
+		#piclist li a:nth-of-type(2){
+			top:-360px;
+			background: url(2.jpg) ;
+			-webkit-transform-origin: bottom;
+			-webkit-transform: rotateX(90deg);
+		}
+		#piclist li a:nth-of-type(3){
+			background: url(3.jpg) ;
+			-webkit-transform:  translateZ(-360px) rotateX(-180deg);
+		}
+		#piclist li a:nth-of-type(4){
+			top:360px;
+			background: url(4.jpg) ;
+			-webkit-transform-origin: top;
+			-webkit-transform: rotateX(-90deg);
+		}
+		#piclist li span:nth-of-type(1){
+			/*display: block;*/
+            width:360px;
+            height: 360px;
+            position: absolute;
+            left: 0px;
+			background-color: #331D1D;
+			-webkit-transform-origin: left;
+			-webkit-transform: rotateY(90deg);
+		}
+		#piclist li span:nth-of-type(2){
+			display: block;
+            width:360px;
+            height: 360px;
+            position: absolute;
+            right: 0px;
+			background-color: #331D1D;
+			-webkit-transform-origin: right;
+			-webkit-transform: rotateY(-90deg);
+		}
+		#btn{
+			position: absolute;
+			right: 0px;
+			bottom: -60px;
+		}
+		#btn li{
+			float: left;
+			width: 40px;
+			height: 40px;
+			background-color: #000;
+			font-size: 30px;
+			line-height: 40px;
+			text-align: center;
+			color:#fff;
+			margin: 0 5px;
+			border-radius: 50%;	
+		}
+		#btn .active{
+			background-color: #f60;
+		}
+
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var olist=document.getElementById('piclist');
+			
+			var liwidth=25;
+			var lilength=olist.clientWidth/liwidth;
+			var ostyle=document.getElementsByTagName('style')[0];
+			var obtn=document.getElementById('btn');
+			var abtn=obtn.getElementsByTagName('li');
+			// console.log(lilength);
+			var str="";
+			var css="";
+			var zindex=0;
+			for(var i=0;i<lilength;i++){
+				i<lilength/2? zindex++:zindex--;
+				str+='<li><a href=""></a><a href=""></a><a href=""></a><a href=""></a><span></span><span></span></li>';
+				 css+='#piclist li:nth-of-type('+(i+1)+') a {background-position: -'+i*liwidth+'px 0;}';
+				 css+="#piclist li:nth-of-type("+(i+1)+"){z-index:"+zindex+"}";
+				}
+			olist.innerHTML=str;
+			ostyle.innerHTML+=css;
+            var ali=olist.getElementsByTagName('li');
+            console.log(ali.length);
+            var inow=0;
+            for(var i=0;i<abtn.length;i++){
+            	abtn[i].index=i;
+            	abtn[i].onclick=function(){
+            		console.log(inow);
+            		abtn[inow].className="";
+            		this.className="active";
+            		inow=this.index;
+            		
+            		for(var j=0;j<lilength;j++){
+            			ali[j].style.WebkitTransition=j*50+'ms';
+            			ali[j].style.WebkitTransform='rotateX(-'+90*this.index+'deg)';
+            		}
+            	};
+            }
+
+		};
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="piclist">
+		<!-- 	<li>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<span></span>
+				<span></span>
+			</li> -->
+			
+			
+		</ul>
+		<ul id="btn">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</body>
+</html>

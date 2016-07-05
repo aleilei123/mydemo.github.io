@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>折纸下拉菜单</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		@-webkit-keyframes show{
+			0%{
+				opacity: 1;
+				
+				-webkit-transform:rotateX(-120deg);
+			}
+		
+			25%{
+
+				-webkit-transform:rotateX(-50deg);
+			}
+			50%{
+
+
+				-webkit-transform:rotateX(45deg);
+			}
+			70%{
+				-webkit-transform:rotateX(-30deg);
+							}
+			90%{
+
+				-webkit-transform:rotateX(5deg);
+			}
+			100%{
+				
+				-webkit-transform:rotateX(0deg);
+			}
+		}
+		@-webkit-keyframes hide{
+			0%{
+				-webkit-transform:rotateX(0deg);
+			}
+			
+			100%{
+				-webkit-transform:rotateX(-120deg);
+			}
+		}
+		#wrap{
+			width: 250px;
+			margin: 30px auto;
+			position: relative;
+			-webkit-perspective: 800px;
+			-webkit-transform-style: preserve-3d;
+			/*border: 1px solid #000;*/
+		}
+		#wrap h2{
+
+        	z-index: 100;
+			position: relative;
+			display: block;
+			width: 100%;
+			height: 40px;
+			background-color: #F86A0A;
+			font-size: 30px;
+			line-height: 40px;
+			color: #fff;
+			text-align: center;
+			
+		}
+		#wrap div{
+			-webkit-transform-style: preserve-3d;
+			width: 100%;
+			height: 30px;
+			background-color: #F466CD;
+			color: #fff;
+			position: absolute;
+			top:32px;
+			left: 0px;
+			text-indent: 20px;
+			line-height: 30px;
+			-webkit-transform-origin: top;
+		}
+		#wrap>div{
+			top:43px;
+		}
+		#wrap div{
+			
+			box-shadow:inset 0 0 0 15px rgba(0,0,0,0.8);
+			-webkit-transition: 1s;
+			-webkit-transform: rotateX(-120deg);
+		}
+
+        #wrap .show{
+
+        	box-shadow:inset 0 0 0 15px rgba(0,0,0,0);
+        	-webkit-animation: 2s show;
+        	-webkit-transform: rotateX(0deg);
+        	opacity: 1;
+        }
+        #wrap .hide{
+        	-webkit-animation: 0.8s hide;
+        	-webkit-transform: rotateX(-120deg);
+        }
+        
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var owrap=document.getElementById('wrap');
+			var oh2=owrap.getElementsByTagName('h2')[0];
+			var adiv=owrap.getElementsByTagName('div');
+			var onoff=true;
+			var timer=null;
+			var timer1=null;
+			oh2.onclick=function(){
+				if(timer || timer1){
+					return;
+				}
+				if(onoff){
+				var i=0;
+				timer=setInterval(function(){
+					adiv[i].className="show";
+					i++;
+					if(i==adiv.length){
+						clearInterval(timer);
+						timer=null;
+						onoff=false;
+					}				
+				},150);	
+			}else{
+				var k=adiv.length-1;
+			    timer1=setInterval(function(){
+					adiv[k].className="hide";
+					k--;
+					if(k<0){
+						clearInterval(timer1);
+						onoff=true;
+						timer1=null;
+					}				
+				},150);	
+			}		
+			};
+		};
+
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<h2 style="z-index:10;">我是标题</h2>
+		<div>
+			<span>选项一</span>
+			<div >
+				<span>选项二</span>
+				<div>
+					<span>选项三</span>
+					<div>
+						<span>选项四</span>
+						<div>
+							<span>选项五</span>
+							<div>
+								<span>选项六</span>
+								<div>
+									<span>选项七</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

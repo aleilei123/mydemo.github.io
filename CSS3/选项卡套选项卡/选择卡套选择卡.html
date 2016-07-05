@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择卡套选择卡</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+	    #wrap{
+	    	width: 800px;
+	    	border: 1px solid #000;
+	    	margin: 30px auto;
+	    	box-shadow: 0 0 10px 2px #BFB8B8;
+	    }
+	    #wrap:after{
+	    	content: "";
+	    	display: block;
+	    	clear: both;
+	    }
+	    #title{
+	    	width: 120px;
+	    	float: left;
+	    }
+	    #title li{
+
+	    	height: 5px;
+	    	border-bottom: 1px solid #3F3E3E;
+	    	padding: 80px 20px 20px 30px;
+	    	
+	    }
+	    #title li:last-child{
+	    	border-bottom: none;
+	    }
+	    #title .grop{
+	    	background: url(img/tg.png) no-repeat center;
+	    	background-color: #E3DFE3;
+	    }
+	    #title .special{
+	    	background: url(img/scth.png) no-repeat center;
+	    	background-color: #E3DFE3;
+	    }
+	    #title .commend{
+	    	background: url(img/mptj.png) no-repeat center;
+	    	background-color: #E3DFE3;
+	    }
+	    #title .join{
+	    	background: url(img/bfhd.png) no-repeat center;
+	    	background-color: #E3DFE3;
+	    }
+	    #title li:hover,#title .active{
+	    	background-color: #fff;
+	    }
+        #content{
+        	position: relative;
+        	width: 680px;
+        	height: 385px;
+        	float: right;
+        	
+        }
+         #content img{
+         	width: 680px;
+        	height: 420px;
+         }
+        #content li{
+        	float: left;
+        	width: 167px;
+        	height: 35px;
+        	line-height: 30px;
+			color:rgba(255,255,255,1);
+        	background-color: rgba(0,0,0,0.5);
+        	text-align: center;
+        	border-right: 1px solid #fff;
+        }
+        #content ul{
+        	position: absolute;
+        	bottom:-40px;
+        }
+        #content li:last-child{
+        	border-right:none;
+        }
+        #content li:hover,#content .active{
+         	background-color:#EA4D93;
+         }
+         #content li:first-child{
+         	background-color:#EA4D93;
+         }
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var arrimg=[
+			['img/1.jpg','img/2.jpg','img/3.jpg','img/6.jpg'],
+			['img/4.jpg','img/5.jpg'],
+			['img/8.jpg','img/9.jpg','img/10.jpg'],
+			['img/1.jpg','img/2.jpg','img/3.jpg'],
+			];
+			var arrlist=[
+			['补水套装','卸妆液','护理液','保湿霜'],
+			['小蛋糕','零食'],
+			['范冰冰','大美女','绿衣服'],
+			['范冰冰','大美女','绿衣服'],
+			];
+			var otitle=document.getElementById('title');
+			var ali=otitle.getElementsByTagName('li');
+			var olabel=document.getElementById('content').getElementsByTagName('ul')[0];
+			var ali1=olabel.getElementsByTagName('li');
+			var oimg=document.getElementsByTagName('img')[0];
+			// console.log(ali1.length);
+			show(0);
+			for(var i=0;i<ali.length;i++){
+				ali[i].index=i;
+                 ali[i].onclick=show; 
+             }
+				function show(num){
+					console.log(num);
+					if(num==0){num=0;}else{num=this.index};
+
+					
+					for(var j=0;j<ali.length;j++){
+						ali[j].style.backgroundColor='#E3DFE3';
+					}
+					ali[num].style.backgroundColor='#fff';
+					for(var n=0;n<ali1.length;i++){
+						 olabel.removeChild(ali1[n]);
+					}
+                   
+                    for(var m=0;m<arrimg[num].length;m++){
+                    	var oli=document.createElement('li');
+                    	oli.innerHTML=arrlist[num][m];
+                    	console.log(oli.innerHTML);
+                    	olabel.appendChild(oli);
+                    }
+                    
+					for(var k=0;k<ali1.length;k++){
+						ali1[k].style.width=parseInt(670/ali1.length)+'px';
+						ali1[k].index=k;
+						ali1[k].onmouseover=function(){
+							if(this.index!=0){
+								ali1[0].style.backgroundColor='rgba(0,0,0,0.5)';
+							}
+							if(this.index==0){
+								ali1[0].style.backgroundColor='#EA4D93';
+							}
+							oimg.src=arrimg[num][this.index];
+							
+						};
+					}
+				};
+			
+		
+		};
+
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="title">
+			<li class="grop active">最热团购</li>
+			<li class="special">商城特惠</li>
+			<li class="commend">名品推荐</li>
+			<li class="join">缤纷活动</li>
+		</ul>
+		<div id="content">
+			<img src="img/1.jpg">
+			<ul class="label">
+				<li class="active">补水套装</li>
+				<li>卸妆液</li>
+				<li>护理液</li>
+				<li>保湿霜</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
