@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟拖拽上传</title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+	#list{
+		width: 900px;
+		margin: 20px auto;
+	}
+	#list:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#list li{
+		width: 200px;
+		height: 340px;
+		float: left;
+		margin: 10px;
+		border: 1px solid #000;
+	}
+	#list img{
+		width: 200px;
+		height: 300px;
+		border: 1px solid #000;
+	}
+	#list p:nth-of-type(1){
+		border-bottom: 1px dotted #000;
+	}
+	#shop{
+		position: relative;
+		width: 800px;
+		/*height: 200px;*/
+		margin: 50px auto;
+		/*background-color: red;*/
+		border: 1px solid #000;
+	}
+	#shop p:nth-of-type(1){
+		border-bottom: 1px dotted #000;
+		line-height: 20px;
+
+	}
+	#shop p{
+		border-bottom: 1px dotted #000;
+		line-height: 100px;
+
+	}
+	#shop span{
+		text-align: center;
+		display: inline-block;
+		width: 180px;
+
+	}
+	#shop img{
+		padding-left: 80px;
+		width: 100px;
+		height: 100px;
+		vertical-align: middle;
+		
+	}
+	#shop div{
+		width: 100px;
+		height: 30px;
+		background-color: #F28947;
+		position: absolute;
+		right: 0px;
+		top:-30px;
+		line-height: 30px;
+		color: #fff;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			 var olist=document.getElementById('list');
+			 var ali=olist.getElementsByTagName('li');
+			 var oshop=document.getElementById('shop');
+			 var obj={};
+			 for(var i=0;i<ali.length;i++){
+			 	ali[i].ondragstart=function(ev){
+			 		var ap=this.getElementsByTagName('p');
+			 		var aimg=this.getElementsByTagName('img')[0];
+			 		ev.dataTransfer.setData('title',ap[0].innerHTML);
+			 		ev.dataTransfer.setData('price',ap[1].innerHTML);
+			 		ev.dataTransfer.setData('picture',aimg.src);
+			 		ev.dataTransfer.setDragImage(this,0,0);
+			 	};
+
+			 }
+
+			 oshop.ondragover=function(ev){
+			 	ev=ev||window.event;
+			 	ev.preventDefault();
+			 };
+			  oshop.ondrop=function(ev){
+			 	ev=ev||window.event;
+			 	ev.preventDefault();
+			 	var name=ev.dataTransfer.getData('title');
+			 	var money=ev.dataTransfer.getData('price');
+			 	var pic=ev.dataTransfer.getData('picture');
+			 	var picsrc=pic.substring(pic.length-8,pic.length);
+			 	if(!obj[name]){
+				 	var op=document.createElement('p');
+				 	// op.draggable="true";
+				 	var ospan=document.createElement('span');
+				 	ospan.innerHTML=name;
+				 	op.appendChild(ospan);
+				 	oshop.appendChild(op);
+
+				 	var ospan=document.createElement('span');
+				 	ospan.innerHTML=money;
+				 	op.appendChild(ospan);
+				 	oshop.appendChild(op);
+
+				 	var ospan=document.createElement('span');
+				 	ospan.innerHTML=1;
+				 	op.appendChild(ospan);
+				 	oshop.appendChild(op);
+
+				 	var oimg=document.createElement('img');
+				 	oimg.src=picsrc;
+				 	op.appendChild(oimg);
+				 	oshop.appendChild(op);
+				 	obj[name]=1;
+				}else{
+					var ap=oshop.getElementsByTagName('p');
+					for(var i=0;i<ap.length;i++){
+						var rename=ap[i].getElementsByTagName('span')[0].innerHTML;
+						if(rename==name){
+							ap[i].getElementsByTagName('span')[2].innerHTML=parseInt(ap[i].getElementsByTagName('span')[2].innerHTML)+1;
+						}
+
+					}
+				}
+				var oprice=oshop.getElementsByTagName('div')[0];
+				var aps=oshop.getElementsByTagName('p');
+				// console.log(aps.length);
+				var number=0;
+				for(var j=1;j<aps.length;j++){
+					var aspans=aps[j].getElementsByTagName('span');
+					// console.log(aspans.length);
+					var aprice=parseInt(aspans[1].innerHTML)*parseInt(aspans[2].innerHTML);
+					console.log(parseInt(aspans[1].innerHTML));
+					number+=aprice;
+				}
+				oprice.innerHTML='<strong>总价：</strong>'+number;
+			};
+
+		};
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li draggable="true"><img src="img1.jpg"><p>javascript精选</p><p>120￥</p></li>
+		<li draggable="true"><img src="img2.jpg"><p>javascript权威指南</p><p>60￥</p></li>
+		<li draggable="true"><img src="img3.jpg"><p>精通javascript</p><p>80$</p></li>
+		<li draggable="true"><img src="img4.jpg"><p>javascript之DOM精选</p><p>45￥</p></li>
+	</ul>
+	<div id="shop">
+		<p>
+			<span><strong>书名</strong></span>
+			<span><strong>价格</strong></span>
+			<span><strong>数量</strong></span>
+			<span><strong>图片</strong></span>
+		</p>
+		<div><strong>总价:</strong>0</div>
+
+		<!-- <p>
+			<span>javascript精选</span>
+			<span>120￥</span>
+			<span>2</span>
+			<img src="img1.jpg">
+		</p> -->
+		
+	</div>
+</body>
+</html>
