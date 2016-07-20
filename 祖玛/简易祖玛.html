@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易祖玛</title>
+	<style type="text/css">
+	body{
+		background-color: #000;
+	}
+	div{
+		width: 600px;
+		/*background-color: #fff;*/
+		margin: 30px auto;
+	}
+	#c1{
+		background-color: #fff;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oc=document.getElementById('c1');
+			var ogc=oc.getContext('2d');
+			var ball=[];
+			var bullet=[];
+			var onoff=false;
+			var run=false;
+			var color=['red','black','green'];
+			var yimg=new Image();
+			yimg.onload=function(){
+				
+			var timer=setInterval(function(){
+
+				ogc.clearRect(0,0,oc.width,oc.height);
+				ogc.beginPath();
+				ogc.arc(300,200,200,-90*(Math.PI)/180,180*(Math.PI)/180);
+				ogc.stroke();
+				
+				ogc.beginPath();
+				ogc.arc(250,200,150,-180*(Math.PI)/180,0*(Math.PI)/180);
+				ogc.stroke();
+				
+				ogc.beginPath();
+				ogc.arc(400,200,25,0*(Math.PI)/180,360*(Math.PI)/180);
+				ogc.stroke();
+				
+				for(var i=0;i<ball.length;i++){
+					
+					if(ball[i].num==270){
+						ball[i].startX=250;
+						ball[i].startY=50;
+						ball[i].r=150;
+						
+						}
+					if(ball[i].num==450){
+						  // alert('游戏结束');
+						window.location.reload();//重新加载页面
+					}
+
+					ball[i].x = Math.sin(ball[i].num*(Math.PI)/180) * ball[i].r + ball[i].startX;
+					ball[i].y = ball[i].r - Math.cos(ball[i].num*(Math.PI)/180) * ball[i].r + ball[i].startY;
+					
+					ball[i].num++;
+					ogc.beginPath();
+					ogc.fillStyle=ball[i].color;
+					ogc.arc(ball[i].x,ball[i].y,25,0*(Math.PI)/180,360*(Math.PI)/180);
+					ogc.fill();
+					
+				}
+
+
+				for(var i=0;i<bullet.length;i++){
+				
+				for(var j=0;j<ball.length;j++){
+					color1=bullet[i].color;
+						color2=ball[j].color;
+					if( pz(bullet[i].x,bullet[i].y,ball[j].x,ball[j].y)){
+						bullet.splice(i,1);
+						spliceball(color1,j,j);
+
+						var m=j-1;
+						var k=parseInt(j)+1;
+						break;	
+					}
+
+					
+				}
+				
+			}
+
+			if(onoff){
+				
+				ogc.beginPath();
+				ogc.save();
+				ogc.fillStyle = bullet[bullet.length-1].color;
+			    ogc.globalCompositeOperation="source-over" ;
+				ogc.arc(320,200,25,0*Math.PI/180,360*Math.PI/180);
+				ogc.fill();
+				ogc.restore();
+				}
+				if(run){
+					for(var i=0;i<bullet.length;i++){
+						bullet[i].x = bullet[i].x + bullet[i].sX;
+						bullet[i].y = bullet[i].y + bullet[i].sY;
+						ogc.save();
+						ogc.fillStyle = bullet[i].color;
+						ogc.beginPath();
+						ogc.moveTo(bullet[i].x,bullet[i].y);
+						ogc.arc(bullet[i].x,bullet[i].y,25,0*Math.PI/180,360*Math.PI/180,false);
+						ogc.fill();
+						ogc.restore();
+		
+					}
+				}
+				ogc.save();
+				ogc.translate(270,200);
+				ogc.rotate(angle);
+				ogc.translate(-40,-40);
+				ogc.drawImage(yimg,0,0);
+				ogc.restore();
+
+
+				ogc.save();
+				ogc.font="60px impact";
+				ogc.fillStyle="#000";
+				ogc.shadowOffsetX = 10;
+				ogc.shadowOffsetY = 10;
+				ogc.shadowColor = 'green';
+				ogc.shadowBlur = 3;
+				ogc.textBaseline = 'top';
+				var w = ogc.measureText('简易祖玛').width;
+				ogc.fillText('简易祖玛', (oc.width - w)/2 , 480 );
+				ogc.restore();
+				ogc.save();
+				ogc.font="60px impact";
+				ogc.fillStyle="#000";
+				ogc.shadowOffsetX = -10;
+				ogc.shadowOffsetY = -10;
+				ogc.shadowColor = 'red';
+				ogc.shadowBlur = 5;
+				ogc.textBaseline = 'top';
+				var w =ogc.measureText('简易祖玛').width;
+				ogc.fillText('简易祖玛', (oc.width - w)/2 , 480 );
+				ogc.restore();
+			
+
+				},1000/60);
+
+				var timer1=setInterval(function(){
+					ball.push({
+						x:300,
+						y:0,
+						r:200,
+						startX:300,
+						startY:0,
+						num:0,
+						color:color[Math.floor(Math.random()*3)]});
+					
+				},230);
+
+				var angle=0;
+				oc.onmousemove=function(ev){
+					ev=ev||window.event;
+					var x=ev.clientX-oc.offsetLeft;
+					var y=ev.clientY-oc.offsetTop;
+					a=x-270;
+					b=y-200;
+
+					c=Math.sqrt(a*a+b*b);
+					if(a>0&&b<=0){
+						angle=Math.asin(a/c);
+
+					}
+					if(a>0&&b>0){
+						angle=Math.asin(b/c)+90*(Math.PI)/180;
+
+					}
+					if(a<0&&b<=0){
+						angle=Math.asin(a/c);
+
+					}
+					if(a<0&&b>0){
+						angle=-Math.asin(b/c)-90*(Math.PI)/180;
+
+					}
+					
+					
+					
+				};
+
+				oc.onmousedown = function(ev){
+			    ev = ev || window.event;
+				
+				var x = ev.clientX - oc.offsetLeft;
+				var y = ev.clientY - oc.offsetTop;
+				
+				var a = x - 300;
+				var b = y - 200;
+				
+				var c = Math.sqrt(a*a + b*b);
+				
+				var speed = 5;
+				
+				var sX = speed * a/c;
+				var sY = speed * b/c;
+				
+				bullet.push({
+					x : 270,
+					y : 200,
+					sX : sX,
+					sY : sY,
+					color:color[Math.floor(Math.random()*3)]
+				});
+
+				onoff=true;
+				run=false;
+			
+			};
+
+			oc.onmouseup=function(ev){
+				run=true;
+				onoff=false;
+				speed=5;
+				var x = ev.clientX - oc.offsetLeft;
+				var y = ev.clientY - oc.offsetTop;
+				
+				var a = x - 300;
+				var b = y - 200;
+				
+				var c = Math.sqrt(a*a + b*b);
+					
+						bullet[bullet.length-1].sX=speed * a/c;
+						bullet[bullet.length-1].sY=speed * b/c;
+				
+			};
+
+			};
+
+			yimg.src='person.png';
+
+				function pz(x1,y1,x2,y2){
+		
+				var a = x1 - x2;
+				var b = y1 - y2;
+				
+				var c = Math.sqrt(a*a + b*b);
+				
+				if(c < 50){
+					return true;
+				}
+				else{
+					return false;
+				}
+				
+			}
+			function coneliminate(j){
+				j=j;
+				k=j+1;
+				if(ball[j].color==ball[k].color){
+					
+					color1=ball[j].color;
+					while(ball[j].color==color1){
+					j--;
+					if(j<0){
+						break;
+						}
+					}
+					while(ball[k].color==color1){
+						k++;
+						if(k>ball.length-1){
+							break;
+						}
+					}
+					
+					console.log('num='+(k-j));
+					if(k-1-j>=2){
+						for (var number=0;number<=j;number++){
+								ball[number].num=ball[parseInt(number)+parseInt(k)-j-1].num;		
+						}
+
+					ball.splice(parseInt(j+1),k-j-1);
+					 coneliminate(j,k+1);
+				}else{
+					return 0;
+				}
+				}else{
+					return 0;
+				}
+			}
+			function spliceball(color1,j,k){
+				
+				var mm=j;
+				if(ball[j].color!=color1){
+
+						ball.splice(j+1,0,{
+						x:ball[j].x,
+						y:ball[j].y,
+						r:ball[j].r,
+						startX:ball[j].startX,
+						startY:ball[j].startY,
+						num:ball[j].num,
+						color:color1
+					});
+
+					for (var index=j;index>0;index--){
+							ball[index].num=ball[index-1].num;		
+					}
+					ball[0].num=ball[0].num+10;
+					return 0;
+				}else{
+				while(ball[j].color==color1){
+					j--;
+					if(j<0){
+						break;
+					}
+				}
+				while(ball[k].color==color1){
+					k++;
+					if(k>ball.length-1){
+						break;
+					}
+				}
+				
+				
+				if(k-1-j>=2){
+					for (var number=0;number<=j;number++){
+							ball[number].num=ball[parseInt(number)+parseInt(k)-j-1].num;		
+					}
+				ball.splice(parseInt(j+1),k-j-1);
+				var timer3=setTimeout(function(){
+					coneliminate(j);
+				},200);
+				return 1;
+				 
+
+				}else{
+					j=mm;
+					ball.splice(j+1,0,{
+						x:ball[j].x,
+						y:ball[j].y,
+						r:ball[j].r,
+						startX:ball[j].startX,
+						startY:ball[j].startY,
+						num:ball[j].num,
+						color:color1
+					});
+
+					for (var index=j;index>0;index--){
+							ball[index].num=ball[index-1].num;		
+					}
+					ball[0].num=ball[0].num+10;
+					}
+				}	
+			}
+
+		};
+	</script>
+</head>
+<body>
+	<div>
+		<canvas id="c1" width="600" height="600"></canvas>
+	</div>
+</body>
+</html>
