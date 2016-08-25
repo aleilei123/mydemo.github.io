@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="digit.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			console.log(screen.width);
+			var WINDOW_WIDTH = screen.width;
+			var WINDOW_HEIGHT = screen.height-200;
+			var MARGIN_TOP = parseInt(WINDOW_HEIGHT/5);
+			var MARGIN_LEFT = parseInt(WINDOW_WIDTH/5);
+			var canvas=document.getElementById('canvas');
+			var context=canvas.getContext('2d');
+			var nowtime=new Date();
+			var Hour=nowtime.getHours();
+			var Min=nowtime.getMinutes();
+			var Sec=nowtime.getSeconds();
+			var radius=parseInt(WINDOW_WIDTH*3/5/108);
+			canvas.width=WINDOW_WIDTH;
+			canvas.height=WINDOW_HEIGHT;
+			var cwidth=WINDOW_WIDTH;
+			var cheight=WINDOW_HEIGHT;
+
+			var colors=['#FCC90C','#7F74F8','#F23E25','#0ACBF9','#F60FF4','#9D11F8','#8B8F08','#185907','#919ADC','#FB096B','#0C0000'];
+
+			getdigit(0,MARGIN_TOP,context,parseInt(Hour/10),colors[10]);
+			getdigit(15*(radius+1),MARGIN_TOP,context,parseInt(Hour%10),colors[10]);
+			getdigit(30*(radius+1),MARGIN_TOP,context,10);
+			getdigit(39*(radius+1),MARGIN_TOP,context,parseInt(Min/10),colors[10]);
+			getdigit(54*(radius+1),MARGIN_TOP,context,parseInt(Min%10),colors[10]);
+			getdigit(69*(radius+1),MARGIN_TOP,context,10,colors[10]);
+			getdigit(78*(radius+1),MARGIN_TOP,context,parseInt(Sec/10),colors[10]);
+			getdigit(93*(radius+1),MARGIN_TOP,context,parseInt(Sec%10),colors[10]);
+			var ball=[];
+
+			timer=setInterval(function(){
+
+
+				context.clearRect(0,0,cwidth,cheight);
+
+				
+		  //       context.font="200px 黑体";
+				// context.fillStyle="red";
+				// context.fillText("炫丽的时间",MARGIN_LEFT*0.9,MARGIN_TOP*4);
+				// context.strokeStyle="red";
+		        
+				var nowtime=new Date();
+				var Hour=nowtime.getHours();
+				var Min=nowtime.getMinutes();
+				var Sec=nowtime.getSeconds();
+
+				nowtime1=new Date(nowtime.setTime(nowtime.getTime()+50));
+				var Hour1=nowtime1.getHours();
+				var Min1=nowtime1.getMinutes();
+				var Sec1=nowtime1.getSeconds();
+				
+			
+			if(parseInt(Hour/10)!=parseInt(Hour1/10)){
+				getdigit(MARGIN_LEFT,MARGIN_TOP,context,parseInt(Hour1/10),1);
+			}else{
+				getdigit(MARGIN_LEFT,MARGIN_TOP,context,parseInt(Hour1/10),0);
+			}
+
+			if(parseInt(Hour%10)!=parseInt(Hour1%10)){
+				getdigit(15*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Hour1%10),1);
+			}else{
+					getdigit(15*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Hour1%10),0);
+			}
+
+				getdigit(30*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,10);
+			if(parseInt(Min/10)!=parseInt(Min1/10)){	
+				getdigit(39*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Min1/10),1);
+			}else{
+				getdigit(39*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Min1/10),0);
+			}
+
+			if(parseInt(Min%10)!=parseInt(Min1%10)){
+				getdigit(54*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Min1%10),1);
+			}else{
+				getdigit(54*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Min1%10),0);
+			}
+				getdigit(69*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,10,colors[10]);
+
+			if(parseInt(Sec/10)!=parseInt(Sec1/10)){
+				getdigit(78*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Sec1/10),1);
+			}else{
+				getdigit(78*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Sec1/10),0);
+			}
+			if(parseInt(Sec%10)!=parseInt(Sec1%10)){
+				getdigit(93*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Sec1%10),1);	
+			}else{
+				getdigit(93*(radius+1)+MARGIN_LEFT,MARGIN_TOP,context,parseInt(Sec1%10),0);
+			}
+			 // console.log(ball.length);
+
+			for(var j=0;j<ball.length;j++){
+
+				context.fillStyle=ball[j].bcolor;
+				ball[j].bx-=ball[j].vx;
+	  			ball[j].by-=ball[j].vy;
+	  			ball[j].vy+=ball[j].g;
+	  			context.beginPath();
+	  			if(cheight-ball[j].by<radius){
+	  				context.arc(ball[j].bx,cheight-radius,radius,0,2*Math.PI);
+	  				ball[j].vy=-ball[j].vy*0.7;
+	  				
+	  			}
+	  			context.arc(ball[j].bx,ball[j].by,radius,0,2*Math.PI);
+	  			context.closePath();
+	  			context.fill();
+				}
+
+				removeball(ball);
+			},50);
+
+			function removeball(){
+				var cnt=0;
+				for(var j=0;j<ball.length;j++){
+					if(ball[j].bx>0&&ball[j].bx<cwidth-radius){
+						ball[cnt++]=ball[j];
+					}
+				}
+				for(var number=cnt;number<ball.length;number++){
+					ball.pop();
+				}
+			}
+			function getdigit(x,y,context,index,flag){
+               
+				for(var i=0;i<digit[index].length;i++){
+					for(var j=0;j<digit[index][i].length;j++){
+						if(digit[index][i][j]==1){
+							context.beginPath();
+							context.arc(x+j*2*(radius+1)+(radius+1),y+i*2*(radius+1)+radius+1,radius,0,2*Math.PI);
+							if(flag==1){
+								num=parseInt(Math.random()*10);
+
+								context.fillStyle=colors[num];
+								ball.push(
+								{
+									bx:x+j*2*(radius+1)+(radius+1),
+									by:y+i*2*(radius+1)+radius+1,
+									g:-5,
+									vx:Math.pow(-1,Math.ceil(Math.random()*1000))*4,
+									vy:10,
+									bcolor:colors[num]
+								}
+
+								);
+								
+								
+						}else{
+							context.fillStyle=colors[10];
+						}
+							context.fill();
+							context.closePath();
+						}
+					}
+				}
+			}
+		};
+	</script>
+</head>
+<body style="height: 100%">
+	<canvas id="canvas" style="height: 100%"></canvas>
+</body>
+</html>
