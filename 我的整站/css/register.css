@@ -1,0 +1,95 @@
+
+.register{
+	position: relative;
+	width: 460px;
+	height: 430px;
+	background-color: #222;
+	margin: 100px auto;
+	padding: 20px;
+}
+.register h2{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #373535;
+	margin-bottom: 30px;
+}
+
+.register label{
+	font-size:14px;
+}
+.register .email{
+	text-indent: 5px;
+	color:#000;
+	margin-left: 42px;
+	width: 150px;
+	height: 25px;
+	margin-bottom: 30px;
+	border: none;
+	box-shadow: inset 0 0 5px 0px red;
+}
+.register .psd{
+	text-indent: 5px;
+	color:#000;
+	width: 150px;
+	height: 25px;
+	margin-bottom: 42px;
+	margin-left: 17px;
+	border: none;
+	box-shadow: inset 0 0 5px 0px red;
+
+}
+.register .username{
+	text-indent: 5px;
+	color:#000;
+	margin-left: 40px;
+	width: 150px;
+	height: 25px;
+	margin-bottom: 30px;
+	border: none;
+	box-shadow: inset 0 0 5px 0px red;
+}
+.register .repsd{
+	text-indent: 5px;
+	color:#000;
+	width: 150px;
+	height: 25px;
+	margin-bottom: 30px;
+	border: none;
+	box-shadow: inset 0 0 5px 0px red;
+
+}
+.register span{
+	margin-left: 20px;
+	font-size:13px;
+	color:#C02727;
+
+}
+.register .check{
+	margin-left: 15%;
+	font-size:13px;
+	color:#C02727;
+	margin-bottom: 30px;
+
+}
+.register .btn1{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: url(../image/red.png);
+	margin-left: 14%;
+	margin-right: 30px;
+}
+.register .btn2{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: url(../image/red.png);
+
+}
+.register p{
+	float: right;
+	margin-top: 40px;
+	font-size:14px;
+}
+.register p a{
+	color:#C02727;;
+}

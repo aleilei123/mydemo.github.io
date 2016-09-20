@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<form action="#" method="post" id="regForm">
+    <fieldset>
+        <legend>jquery-validate表单校验验证</legend>
+        <div class="item">
+            <label for="username" class="item-label">用户名:</label>
+            <input type="text" id="username" name="username" class="item-text" placeholder="设置用户名"
+            autocomplete="off" tip="请输入用户名">
+        </div>
+        <div class="item">
+            <label for="password" class="item-label">密码:</label>
+            <input type="password" id="password" name="password" class="item-text" placeholder="设置密码"
+            tip="长度为6-16个字符">
+        </div>
+        <div class="item">
+            <label for="password" class="item-label">确认密码:</label>
+            <input type="password" name="repassword" class="item-text" placeholder="设置确认密码">
+        </div>
+        <div class="item">
+            <label for="amt" class="item-label">金额:</label>
+            <input type="text" id="amt" name="amt" class="item-text" placeholder="交易金额"
+            tip="交易金额必须大于0，且最多有两位小数">
+        </div>
+        <div class="item">
+            <input type="submit" value="提交" class="item-submit">
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>

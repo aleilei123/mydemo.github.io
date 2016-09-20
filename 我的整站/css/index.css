@@ -1,0 +1,238 @@
+.Scelerisque{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.Scelerisque .text{
+	position: relative;
+	background: url(../image/dots.png);
+	border-bottom: 1px solid #817E7E;
+}
+.Scelerisque .text h2{
+	color:#2E2A2A;
+	padding: 10px 10px 0px 10px;
+}
+.Scelerisque .text p{
+	color:#2E2A2A;
+	font-size: 13px;
+	padding: 10px;
+}
+.Scelerisque .text div:nth-of-type(1){
+	background: url(../image/dots.png);
+	width: 98%;
+	height: 3px;
+	position: absolute;
+	bottom:-5px;
+	left:1%;
+	border-bottom: 1px solid #817E7E;
+}
+.Scelerisque .text div:nth-of-type(2){
+	background: url(../image/dots.png);
+	width: 96%;
+	height: 3px;
+	position: absolute;
+	bottom:-9px;
+	left:2%;
+	border-bottom: 1px solid #817E7E;
+}
+.ad{
+	position: relative;
+	padding: 0 1px;
+}
+.ad .img_list{
+	width: 100%;
+	height: 100%;
+}
+.ad .img_list li{
+	width: 100%;
+	height: 100%;
+}
+/* .ad .img_list li:nth-of-type(2),.ad .img_list li:nth-of-type(3){
+	position: absolute;
+	width: 100%;
+	height: 100%;
+} */
+.ad .img_list li img{
+	width: 100%;
+}
+.ad .prev{
+	cursor: pointer;
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	left: 0;
+	top:0%;
+}
+.ad .prev span,.ad .next span{
+	display: inline-block;
+	margin-top: 40%;
+	font-size: 100px;
+	color:rgba(255,255,255,0.3);
+}
+.ad .next span{
+	float: right;
+}
+.ad .prev:hover span,.ad .next:hover span{
+	color:rgba(255,255,255,1);
+}
+.ad .next{
+	cursor: pointer;
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	right: 0;
+	top:0%;
+}
+.descript{
+	top:70%;
+	left:5%;
+	width: 60%;
+	position: absolute;
+	background-color: rgba(0,0,0,0.8);
+}
+.descript h2,.descript p{
+	color:rgba(255,255,255,0.8);
+	margin:10px;
+}
+.shadow{
+	height: 200px;
+	position: relative;
+	margin: 30px 0;
+	width: 100%;
+}
+.shadow li{
+	height: 200px;
+	float: left;
+	position: relative;
+	width: 30%;
+	margin-right: 5%;
+}
+.shadow .last{
+	margin-right: 0%;
+}
+.shadow li img{
+	width: 100%;
+	height: 200px;
+}
+.shadow li .cap{
+	display: none;
+	width: 91%;
+	height: 190px;
+	padding: 5px 5%;
+	position: absolute;
+	top:0px;
+	background-color: #000;
+	opacity: 0;
+}
+.slide{
+	padding-bottom: 30px;
+	border-bottom: 2px solid #000;
+	width: 100%;
+	height: 280px;
+	position: relative;
+}
+.slide .tab{
+	width: 20px;
+	height: 30px;
+	background: url(../image/red.png);
+	position: relative;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+
+}
+.slide .tab .list_right{
+	position: absolute;
+	top:6px;
+	left: 5px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 8px solid rgba(0,0,0,0);
+	border-top: 8px solid rgba(0,0,0,0);
+	border-right: 8px solid #fff;
+}
+.slide .tab .list_left{
+	position: absolute;
+	top:6px;
+	left: 7px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 8px solid rgba(0,0,0,0);
+	border-top: 8px solid rgba(0,0,0,0);
+	border-left: 8px solid #fff;
+} 
+.slide .img_show{
+	width: 200%;
+}
+.slide .img_show li{
+	float: left;
+	width: 10%;
+	padding-right: 1%;
+}
+	.slide .img_show li .img{
+	width: 100%;
+	height: 150px;
+} 
+.slide .img_show li img{
+	width: 100%;
+	height: 150px;
+}
+.slide .img_show li .msg{
+	width: 100%;
+	height: 80px;
+} 
+.slide .show_wrap{
+	width: 100%;
+	overflow: hidden;
+	height: 250px;
+}
+.slide .img_show li h2,.slide .img_show li p{
+	opacity: 0.7;
+} 
+.slide .img_show li h2{
+	padding-left: 25%;
+}
+.fill_out{
+	width: 100%;
+	height: 110px;
+	background-color: #222222;
+	padding: 20px 25px;
+	margin-bottom: 30px;
+}
+.fill_out h2{
+	text-indent: 40px;
+	font-size:18px;
+	background: url(../image/letter.png) no-repeat 5px;
+}
+.fill_out p{
+	text-indent: 10px;
+	font-size:13px;
+	line-height: 30px;
+}
+.fill_out form{
+	margin-top: 10px;
+}
+.fill_out .name{
+	border:none;
+	box-shadow: inset 0 0 5px 0px red;
+	width: 15%;
+	height: 30px;
+	text-indent: 5px;
+	color:#000;
+}
+.fill_out .email{
+	border:none;
+	box-shadow: inset 0 0 5px 0px red;
+	width: 15%;
+	height: 30px;
+	text-indent: 5px;
+	color:#000;
+}
+.fill_out .subscript{
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	color:#fff;
+	background: url(../image/red.png);
+	border: none;
+}
+

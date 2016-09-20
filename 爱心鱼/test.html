@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>爱心鱼</title>
+	<style type="text/css">
+		body{
+			padding-top: 10px;
+		}
+		.all_bg{
+			width: 800px;
+			height: 600px;
+			margin: 0 auto;
+		}
+		#allcanvas{
+			position: relative;
+			width: 800px;
+			height: 600px;
+			margin: 0px;
+		}
+		#canvas1{
+			position: absolute;
+			bottom: 0;
+			left:0;
+			z-index: 1;
+		}
+		#canvas2{
+			position: absolute;
+			bottom: 0;
+			left:0;
+			z-index: 0;
+		}
+	</style>
+</head>
+<body>
+    <!-- <audio id="ad" autoplay  loop src="audio/纯音乐 - 许多小鱼游来了.mp3"></audio> -->
+	<audio id="ad1"  src="audio/zhidan.mp3"></audio>
+	<div class="all_bg">
+		<div id="allcanvas">
+			<canvas id="canvas1" width="800" height="600"></canvas>
+			<canvas id="canvas2" width="800" height="600"></canvas>
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/commonFunctions.js"></script>
+
+	<script type="text/javascript" src="js/index1.js"></script>
+</body> 
+</html>
