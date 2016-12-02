@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        var arr=[];
+        document.onkeydown=function(ev){
+        var code=ev.keyCode;
+        switch(code){
+            case 87://上
+            // console.log("up");
+            arr.push("up");
+               break;
+            case 83:
+            // console.log("down");
+            arr.push("down");
+                break;
+            }
+        };
+        document.onkeyup=function(ev){
+        var code=ev.keyCode;
+        switch(code){
+            case 87://上
+               // console.log("leaveiup");
+               arr.push("leaveup");
+               break;
+            case 83:
+                // console.log("leaveidown");
+                arr.push("leavedown");
+                break;
+            }
+        };
+
+    </script>
+</body>
+</html>
