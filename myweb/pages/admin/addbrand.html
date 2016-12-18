@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>addad</title>
+  <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/froala_editor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../css/admin.css">
+  <script type="text/javascript" src="../../js/jquery-1.10.1.min.js"></script>
+  <script src="../../js/libs/jquery-1.11.1.min.js"></script>
+  <script src="../../js/froala_editor.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="../js/froala_editor_ie8.min.js"></script>
+  <![endif]-->
+  <script src="../../js/plugins/tables.min.js"></script>
+  <script src="../../js/plugins/lists.min.js"></script>
+  <script src="../../js/plugins/colors.min.js"></script>
+  <script src="../../js/plugins/media_manager.min.js"></script>
+  <script src="../../js/plugins/font_family.min.js"></script>
+  <script src="../../js/plugins/font_size.min.js"></script>
+  <script src="../../js/plugins/block_styles.min.js"></script>
+  <script src="../../js/plugins/video.min.js"></script>
+  <script type="text/javascript" src="../../js/add_ad.js"></script>
+  <script type="text/javascript" src="../../js/admin.js"></script>
+  <link href="../../images/self.jpg" rel="shortcut icon" />
+</head>
+<body>
+ 
+  <!-- header开始 -->
+  <div class="header">
+     <div class="logo fl">
+     <img src="../../images/076e9d2a7c5714d77d0091ac967fc429_副本.png">
+    </div>
+    <div class="message fr">
+     <img src="../../images/924efaf8e9694cc2b516b26bd55087e5_th.jpeg">
+     <span>您好！ <a href="#">小范</a> </span>
+    </div>
+  </div>
+  <!-- header结束 -->
+
+  <!-- side_bar开始 -->
+  <div class="wrap clear">
+  <div class="side_bar fl">
+    <ul class="list">
+      <li class="Home"><em class="glyphicon glyphicon-home"></em><a href="../../index.html">主页</a></li>
+      <li class="Show"><span class=""></span><em class="glyphicon glyphicon-retweet"></em><a href="admin.html">显示</a></li>
+      <li class="Admin list_down"><em class="glyphicon glyphicon-user"></em><a href="#">管理员系统<span>></span></a>
+        <ul>
+          <li><a href="add_administrator.html">增加管理员</a></li>
+          <li><a href="modify_administrator.html">管理员信息修改</a></li>
+        </ul>
+
+      </li>
+       <li class="Nav"><span class=""></span><em class="glyphicon glyphicon-tasks"></em><a href="nav.html">导航栏管理</a></li>
+      <li class="AD list_down"><em class="glyphicon glyphicon-film"></em><a href="#">广告管理<span>></span></a>
+        <ul>
+          <li><a href="adlist.html">广告列表</a></li>
+          <li><a href="addad.html">添加广告</a></li>
+        </ul>
+      </li>
+
+       <li class="Brand list_down"><em class="glyphicon glyphicon-barcode"></em><a href="#">品牌管理<span>></span></a>
+        <ul>
+          <li><a href="brandlist.html">品牌列表</a></li>
+          <li><a href="addbrand.html">添加品牌</a></li>
+        </ul>
+      </li>
+
+      <li class="Pro list_down"><em class="glyphicon glyphicon-wrench"></em><a href="#">商品管理<span>></span></a>
+        <ul>
+          <li><a href="productlist.html">商品列表</a></li>
+          <li><a href="addproduct.html">添加商品</a></li>
+        </ul>
+      </li>
+
+      <li class="Order"><em class="glyphicon glyphicon-shopping-cart"></em><a href="order.html">订单管理</a></li>
+      <li class="Pic"><em class="glyphicon glyphicon-picture"></em><a href="productimage.html">商品图片管理</a></li>
+      <li class="Comment"><em class="glyphicon glyphicon-comment"></em><a href="comment.html">评论管理</a></li>
+      <li class="Msg"><em class="glyphicon glyphicon-floppy-save"></em><a href="message.html">站内信息</a></li>
+
+    </ul> 
+  </div><!-- side_bar结束 -->
+  <div class="content">
+      <h2><span class="glyphicon glyphicon-plus-sign"></span>添加广告</h2>
+      <div class="ad_wrap">
+        <form id="add_brand">
+          <div class="ad_name">
+            <label>品牌名称</label>
+            <input type="text"></input>
+          </div>
+          <div>
+            <input class="ad_submit" type="submit" value="提交"></input>
+            <input class="ad_reply" type="reset" value="重置"></input>
+          </div>
+        </form>
+      </div>
+  </div><!-- content结束 -->
+  </div><!-- wrap结束 -->
+
+</body>
+</html>

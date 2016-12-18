@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>order</title>
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../css/admin.css">
+  <script type="text/javascript" src="../../js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../../js/admin.js"></script>
+  <link href="../../images/self.jpg" rel="shortcut icon" />
+</head>
+<body>
+ 
+  <!-- header开始 -->
+  <div class="header">
+     <div class="logo fl">
+     <img src="../../images/076e9d2a7c5714d77d0091ac967fc429_副本.png">
+    </div>
+    <div class="message fr">
+     <img src="../../images/924efaf8e9694cc2b516b26bd55087e5_th.jpeg">
+     <span>您好！ <a href="#">小范</a> </span>
+    </div>
+  </div>
+  <!-- header结束 -->
+
+  <!-- side_bar开始 -->
+  <div class="wrap">
+  <div class="side_bar fl">
+    <ul class="list">
+      <li class="Home"><em class="glyphicon glyphicon-home"></em><a href="../../index.html">主页</a></li>
+      <li class="Show"><span class=""></span><em class="glyphicon glyphicon-retweet"></em><a href="admin.html">显示</a></li>
+      <li class="Admin list_down"><em class="glyphicon glyphicon-user"></em><a href="#">管理员系统<span>></span></a>
+        <ul>
+          <li><a href="add_administrator.html">增加管理员</a></li>
+          <li><a href="modify_administrator.html">管理员信息修改</a></li>
+        </ul>
+
+      </li>
+       <li class="Nav"><span class=""></span><em class="glyphicon glyphicon-tasks"></em><a href="nav.html">导航栏管理</a></li>
+      <li class="AD list_down"><em class="glyphicon glyphicon-film"></em><a href="#">广告管理<span>></span></a>
+        <ul>
+          <li><a href="adlist.html">广告列表</a></li>
+          <li><a href="addad.html">添加广告</a></li>
+        </ul>
+      </li>
+
+       <li class="Brand list_down"><em class="glyphicon glyphicon-barcode"></em><a href="#">品牌管理<span>></span></a>
+        <ul>
+          <li><a href="brandlist.html">品牌列表</a></li>
+          <li><a href="addbrand.html">添加品牌</a></li>
+        </ul>
+      </li>
+
+      <li class="Pro list_down"><em class="glyphicon glyphicon-wrench"></em><a href="#">商品管理<span>></span></a>
+        <ul>
+          <li><a href="productlist.html">商品列表</a></li>
+          <li><a href="addproduct.html">添加商品</a></li>
+        </ul>
+      </li>
+
+      <li class="Order"><em class="glyphicon glyphicon-shopping-cart"></em><a href="order.html">订单管理</a></li>
+      <li class="Pic"><em class="glyphicon glyphicon-picture"></em><a href="productimage.html">商品图片管理</a></li>
+      <li class="Comment"><em class="glyphicon glyphicon-comment"></em><a href="comment.html">评论管理</a></li>
+      <li class="Msg"><em class="glyphicon glyphicon-floppy-save"></em><a href="message.html">站内信息</a></li>
+
+    </ul> 
+  </div><!-- side_bar结束 -->
+  <div class="content">
+    <div class="administrator">
+      <h2><span class="glyphicon glyphicon-list"></span>商品列表</h2>
+      <div class="wrap clear">
+      <div class="fl">
+        <form>
+          <span>Show</span>
+           <div class="triangle"></div>
+          <select name='menulist'>
+            <option value='page_1.html' selected>10</option>
+            <option value='page_2.html'>20</option>
+            <option value='page_3.html'>50</option>
+            <option value='page_4.html'>All</option>
+          </select>
+          <span>entries</span>
+        </form>
+      </div>
+      <div class="fr">
+        <form>
+          <input type="text" class="con"></input>
+          <input type="submit" class="search" value="搜索"></input>
+        </form>
+      </div>
+      </div>
+      
+      <table id="order" class="productlist">
+      <thead>
+        <tr>
+          <th>订单编号</th>
+          <th>商家名称</th>
+          <th>买家账号</th>
+          <th>订购时间</th>
+          <th>图片</th>
+          <th>数量</th>
+          <th>价格</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>自然堂</td>
+          <td>蕾蕾</td>
+          <td>2015-12-14</td>
+          <td><img src="../../images/2.jpg"></td>
+          <td>5</td>
+          <td>￥150</td>
+          <td><a class="glyphicon glyphicon-pencil" href="#"></a>
+          <a class="glyphicon glyphicon-trash" href="#"></a></td>
+         </tr>
+         <tr>
+          <td>1</td>
+          <td>自然堂</td>
+          <td>蕾蕾</td>
+          <td>2015-12-14</td>
+          <td><img src="../../images/2.jpg"></td>
+          <td>5</td>
+          <td>￥150</td>
+          <td><a class="glyphicon glyphicon-pencil" href="#"></a>
+          <a class="glyphicon glyphicon-trash" href="#"></a></td>
+         </tr>
+         <tr>
+          <td>1</td>
+          <td>自然堂</td>
+          <td>蕾蕾</td>
+          <td>2015-12-14</td>
+          <td><img src="../../images/2.jpg"></td>
+          <td>5</td>
+          <td>￥150</td>
+          <td><a class="glyphicon glyphicon-pencil" href="#"></a>
+          <a class="glyphicon glyphicon-trash" href="#"></a></td>
+         </tr>
+         <tr>
+          <td>1</td>
+          <td>自然堂</td>
+          <td>蕾蕾</td>
+          <td>2015-12-14</td>
+          <td><img src="../../images/2.jpg"></td>
+          <td>5</td>
+          <td>￥150</td>
+          <td><a class="glyphicon glyphicon-pencil" href="#"></a>
+          <a class="glyphicon glyphicon-trash" href="#"></a></td>
+         </tr>
+      </tbody>
+      </table>
+    </div>
+  </div><!-- content结束 -->
+  </div><!-- wrap结束 -->
+
+</body>
+</html>
