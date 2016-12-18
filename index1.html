@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>蕾蕾的小demo</title>
+	<link rel="stylesheet" href="css/index.css" />
+	<script type="text/javascript" src='Js/jquery-1.7.2.min.js'></script>
+	<script type="text/javascript" src='Js/index.js'></script>
+	<script type="text/javascript" src='Js/myindex.js'></script>
+</head>
+<body>
+	<div id='top'>
+	    <!-- <div id='head_icon'><img src="Images/head_icon.jpg"></div> -->
+		
+	</div>
+	<div id='main'>
+	
+		
+
+		<dl class='paper a3'>
+			<dt>
+				<span class='title'>javascript</span>
+			</dt>
+			<dd class='content'>模拟聊天</dd>
+			<dd class='bottom'>
+				<a href="miaov/js中的属性操作/模拟聊天.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		
+		
+		
+
+		<dl class='paper a3'>
+			<dt>
+				<span class='title'>HTML+CSS</span>
+			</dt>
+			<dd class='content'>电商网站首页</dd>
+			<dd class='bottom'>
+				<a href="mydemo/index.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+		<dl class='paper a4'>
+			<dt>
+				<span class='title'>CSS3</span>
+			</dt>
+			<dd class='content'>3D图片切换</dd>
+			<dd class='bottom'>
+				<a href="CSS3/3D图片切换.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		<dl class='paper a1'>
+			<dt>
+				<span class='title'>CSS3</span>
+			</dt>
+			<dd class='content'>3D幻灯片</dd>
+			<dd class='bottom'>
+				<a href="CSS3/3d幻灯片/3D幻灯片.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+		
+		<dl class='paper a2'>
+			<dt>
+				<span class='title'>javascript</span>
+			</dt>
+			<dd class='content'>时间滚动</dd>
+			<dd class='bottom'>
+				<a href="CSS3/时间滚动/作业/时间扩展版.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		<dl class='paper a3'>
+			<dt>
+				<span class='title'>HTML5</span>
+			</dt>
+			<dd class='content'>祖玛</dd>
+			<dd class='bottom'>
+				<a href="祖玛/简易祖玛.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+
+		<dl class='paper a4'>
+			<dt>
+				<span class='title'>HTML5</span>
+			</dt>
+			<dd class='content'>拖拽购物车</dd>
+			<dd class='bottom'>
+				<a href="拖拽购物车/拖拽购物车.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+		
+
+
+		<dl class='paper a2'>
+			<dt>
+				<span class='title'>javascript</span>
+			</dt>
+			<dd class='content'>瀑布流</dd>
+			<dd class='bottom'>
+				<a href="JavaScript瀑布流/index.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		<dl class='paper a3'>
+			<dt>
+				<span class='title'>jquery</span>
+			</dt>
+			<dd class='content'>瀑布流</dd>
+			<dd class='bottom'>
+				<a href="jquery瀑布流/index2.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		<dl class='paper a1'>
+			<dt>
+				<span class='title'>html5</span>
+			</dt>
+			<dd class='content'>爱心鱼</dd>
+			<dd class='bottom'>
+				<a href="爱心鱼/index.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		<dl class='paper a2'>
+			<dt>
+				<span class='title'>整站</span>
+			</dt>
+			<dd class='content'>colory整站</dd>
+			<dd class='bottom'>
+				<a href="我的整站/index.html" target="_blank">查看效果</a>
+			</dd>
+		</dl>
+
+		
+	
+	</div>
+
+	<!-- <div id='send-form'>
+		<p class='ftitle'><span>许下你的愿望</span><a href="" id='close'></a></p>
+		<form action="" name='wish'>
+			<p>
+				<label for="title">标题</label>
+				<input type="text" name='usertitle' id='usertitle'/>
+			</p>
+			<p>
+				<label for="content">简介：(您还可以输入&nbsp;<span id='font-num'>50</span>&nbsp;个字)</label>
+				<textarea name="content" id='content'></textarea>
+			</p>
+			<p>
+				<label for="title">链接地址</label>
+				<input type="text" name='address' id='address'/>
+			</p>
+			<span id='send-btn'></span>
+	
+		</form>
+	</div> -->
+<!--[if IE 6]>
+    <script type="text/javascript" src="./Js/iepng.js"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('#send,#close,.close','background');
+    </script>
+<![endif]-->
+</body>
+<script>
+   $m=$( '.paper' ).length;
+	$("#send-btn").click(function() {
+		$send_form=$("#send-form");
+		$title=$send_form.find("#usertitle").val();
+		$title=$send_form.find("#usertitle").val();
+		$content=$send_form.find("#content").val();
+		$address=$send_form.find("#address").val();
+        $html=rethtml($title,$content,$address);
+        $("#main").append($html);
+      
+        randomsort($m++);
+      $( '#close' ).click();
+		function rethtml(title,content, html) {
+			    var num=Math.floor(Math.random()*5)+1;
+                var $html = "<dl class='paper a"+num+"'><dt><span class='title'>"+title+"</span></dt><dd class='content'>"+content+"</dd><dd class='bottom'><span class='time'>2016-4-23</span><a href=\""+html+"\" >查看效果</a></dd></dl>";
+                 // alert($html);
+                return $html;   
+            }
+            
+	});
+	
+</script>
+</html>
